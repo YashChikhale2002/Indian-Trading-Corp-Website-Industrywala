@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gupta Machinery Stores - Industrial Valves & Pipe Fittings Supplier in Nagpur</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a2463',
+                        secondary: '#d32f2f',
+                        accent: '#ff6b35',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll {
+            animation: scroll 30s linear infinite;
+        }
+
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .diagonal-split {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        /* Hero Carousel Styles */
+        .hero-slide {
+            display: none;
+        }
+
+        .hero-slide.active {
+            display: block;
+        }
+
+        /* Add these styles to your existing <style> tag */
+        .parallax-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* UPDATED: Remove blur and increase visibility */
+        .bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .bg-slide.active {
+            opacity: 0.95;
+            /* CHANGED from 0.15 to 0.95 for clear visibility */
+        }
+
+        .parallax-layer {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .product-card-animated {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .product-card-animated:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .product-card-animated:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .product-card-animated:nth-child(3) {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-3">
+                    <div
+                        class="w-14 h-14 bg-gradient-to-br from-primary to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-2xl">GM</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-primary">Gupta Machinery Stores</h1>
+                        <p class="text-xs text-secondary font-semibold tracking-wide">ESTABLISHED 1969</p>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <ul class="hidden md:flex space-x-8 items-center">
+                    <li><a href="index.html"
+                            class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">Home</a>
+                    </li>
+                    <li><a href="about.html" class="text-gray-700 font-semibold hover:text-primary transition">About</a>
+                    </li>
+                    <li><a href="products.html"
+                            class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
+                    <li><a href="contact.html"
+                            class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
+                    <li><button onclick="openQuoteForm()"
+                            class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">Get
+                            Quote</button></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="block py-2 text-primary font-bold">Home</a></li>
+                    <li><a href="about.html" class="block py-2 text-gray-700">About</a></li>
+                    <li><a href="products.html" class="block py-2 text-gray-700">Products</a></li>
+                    <li><a href="contact.html" class="block py-2 text-gray-700">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Carousel -->
+    <section
+        class="relative bg-gradient-to-br from-primary via-blue-900 to-blue-800 text-white py-24 diagonal-split overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\" 60\"
+                height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\"
+                fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36
+                34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6
+                4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+
+        <!-- Hero Carousel Slides -->
+        <div class="container mx-auto px-4 relative z-10" id="heroCarousel">
+            <!-- Slide 1 -->
+            <div class="hero-slide active">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div
+                        class="inline-block bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4 opacity-0 fade-in-up">
+                        ⭐ TRUSTED SINCE 1969
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight opacity-0 fade-in-up delay-100">
+                        Premium Industrial Valves <br />& Pipe Solutions
+                    </h2>
+                    <p class="text-xl md:text-2xl mb-8 text-blue-100 opacity-0 fade-in-up delay-200">
+                        Authorized Stockiest for Central India | ISO & ISI Certified
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4 opacity-0 fade-in-up delay-300">
+                        <a href="products.html"
+                            class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
+                            Explore Products
+                        </a>
+                        <button onclick="openQuoteForm()"
+                            class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
+                            Request Quote
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-block bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
+                        ✓ ISO 9001:2008 CERTIFIED
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Quality You Can Trust<br />Service You Deserve
+                    </h2>
+                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                        ASTM, IBR, JIS Grade Materials | 55+ Years Experience
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="about.html"
+                            class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
+                            About Us
+                        </a>
+                        <a href="contact.html"
+                            class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="inline-block bg-yellow-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
+                        🏆 INDUSTRY LEADER
+                    </div>
+                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                        Complete Industrial<br />Supply Solutions
+                    </h2>
+                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
+                        500+ Products | 1000+ Satisfied Clients | Competitive Pricing
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <button onclick="openQuoteForm()"
+                            class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
+                            Get Free Quote
+                        </button>
+                        <a href="products.html"
+                            class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
+                            View Catalog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="container mx-auto px-4 relative z-10 mt-16">
+            <div class="grid grid-cols-3 gap-6 max-w-4xl mx-auto opacity-0 fade-in-up delay-400">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-yellow-400">55+</div>
+                    <div class="text-sm text-blue-200 mt-1">Years Experience</div>
+                </div>
+                <div class="text-center border-x border-blue-700">
+                    <div class="text-4xl font-bold text-yellow-400">500+</div>
+                    <div class="text-sm text-blue-200 mt-1">Products</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-yellow-400">1000+</div>
+                    <div class="text-sm text-blue-200 mt-1">Happy Clients</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <div class="absolute bottom-8 left-0 right-0 z-20">
+            <div class="flex justify-center space-x-3">
+                <button onclick="changeSlide(0)"
+                    class="hero-dot w-3 h-3 rounded-full bg-white transition-all duration-300"></button>
+                <button onclick="changeSlide(1)"
+                    class="hero-dot w-3 h-3 rounded-full bg-white/50 transition-all duration-300"></button>
+                <button onclick="changeSlide(2)"
+                    class="hero-dot w-3 h-3 rounded-full bg-white/50 transition-all duration-300"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certification Ribbon -->
+    <section class="bg-white border-y-2 border-gray-200 py-8 overflow-hidden">
+        <div class="container mx-auto px-4 mb-4">
+            <h3 class="text-center text-gray-700 font-bold text-lg">CERTIFIED & COMPLIANT WITH INTERNATIONAL STANDARDS
+            </h3>
+        </div>
+        <div class="relative flex overflow-hidden">
+            <div class="flex animate-scroll">
+                <!-- First set of logos -->
+                <div class="flex items-center space-x-16 px-8">
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-800">ISO</div>
+                                <div class="text-xs text-gray-600">9001:2008</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ISO Certified</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-green-700">ISI</div>
+                                <div class="text-xs text-gray-600">CERTIFIED</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ISI Certified</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-red-700">ASTM</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ASTM Grade</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-purple-700">IBR</div>
+                                <div class="text-xs text-gray-600">APPROVED</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">IBR Approved</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-orange-700">JIS</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">JIS Standard</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-900">DIN</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">DIN Standard</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-teal-700">ASME</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ASME Standard</span>
+                    </div>
+                </div>
+
+                <!-- Duplicate set for seamless loop -->
+                <div class="flex items-center space-x-16 px-8">
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-800">ISO</div>
+                                <div class="text-xs text-gray-600">9001:2008</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ISO Certified</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-green-700">ISI</div>
+                                <div class="text-xs text-gray-600">CERTIFIED</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ISI Certified</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-red-700">ASTM</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ASTM Grade</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-purple-700">IBR</div>
+                                <div class="text-xs text-gray-600">APPROVED</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">IBR Approved</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-orange-700">JIS</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">JIS Standard</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-900">DIN</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">DIN Standard</span>
+                    </div>
+
+                    <div class="flex flex-col items-center min-w-[140px]">
+                        <div
+                            class="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-lg p-4 border-2 border-gray-200">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-teal-700">ASME</div>
+                                <div class="text-xs text-gray-600">STANDARD</div>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-600 mt-2 font-semibold">ASME Standard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid Section with Images -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-red-100 text-secondary px-4 py-1 rounded-full text-sm font-bold mb-4">
+                    OUR SPECIALIZATION
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Complete Product Range</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    From valves to fittings, we provide everything you need for your industrial requirements
+                </p>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
+                <!-- Gate Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔩</div>
+                            <div class="text-sm font-bold text-gray-800">Gate Valve</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Gate Valve
+                    </div>
+                </div>
+
+                <!-- Globe Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">⚙️</div>
+                            <div class="text-sm font-bold text-gray-800">Globe Valve</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Globe Valve
+                    </div>
+                </div>
+
+                <!-- Non Return Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔄</div>
+                            <div class="text-sm font-bold text-gray-800">Non Return Valve</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Non Return Valve
+                    </div>
+                </div>
+
+                <!-- Ball Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">⚽</div>
+                            <div class="text-sm font-bold text-gray-800">Ball Valve</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Ball Valve
+                    </div>
+                </div>
+
+                <!-- Butterfly Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🦋</div>
+                            <div class="text-sm font-bold text-gray-800">Butterfly Valve</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Butterfly Valve
+                    </div>
+                </div>
+
+                <!-- Knife Edge Gate Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔪</div>
+                            <div class="text-sm font-bold text-gray-800">Knife Edge</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Knife Edge Gate
+                    </div>
+                </div>
+
+                <!-- Piston Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔧</div>
+                            <div class="text-sm font-bold text-gray-800">Piston Valve</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Piston Valve
+                    </div>
+                </div>
+
+                <!-- Plug Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔌</div>
+                            <div class="text-sm font-bold text-gray-800">Plug Valve</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Plug Valve
+                    </div>
+                </div>
+
+                <!-- Diaphragm Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">💿</div>
+                            <div class="text-sm font-bold text-gray-800">Diaphragm</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Diaphragm Valve
+                    </div>
+                </div>
+
+                <!-- Strainer Valve -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔍</div>
+                            <div class="text-sm font-bold text-gray-800">Strainer</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Strainer Valve
+                    </div>
+                </div>
+
+                <!-- Flanges -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">⭕</div>
+                            <div class="text-sm font-bold text-gray-800">Flanges</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        Flanges
+                    </div>
+                </div>
+
+                <!-- MS Pipes -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">📏</div>
+                            <div class="text-sm font-bold text-gray-800">MS Pipes</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        M.S Pipes Fittings
+                    </div>
+                </div>
+
+                <!-- IBR Pipes -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔩</div>
+                            <div class="text-sm font-bold text-gray-800">IBR Pipes</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        IBR Pipes Fittings
+                    </div>
+                </div>
+
+                <!-- GI Pipes -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">🔧</div>
+                            <div class="text-sm font-bold text-gray-800">GI Pipes</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        GI Pipes Fittings
+                    </div>
+                </div>
+
+                <!-- SS Pipes -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                    <div
+                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
+                        <div class="text-center">
+                            <div class="text-6xl mb-2">✨</div>
+                            <div class="text-sm font-bold text-gray-800">SS Pipes</div>
+                        </div>
+                    </div>
+                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
+                        SS Pipes Fittings
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="products.html"
+                    class="inline-flex items-center bg-secondary hover:bg-red-700 text-white font-bold px-10 py-4 rounded-lg transition transform hover:scale-105 shadow-lg text-lg">
+                    View All Products
+                    <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Product Categories with Icons -->
+    <section class="py-20 parallax-container" id="productSection">
+        <!-- Parallax Background Carousel - UPDATED -->
+        <div class="parallax-bg">
+            <!-- Background Slide 1 - Industrial Valves (NO gradient overlay) -->
+            <div class="bg-slide active"
+                style="background-image: url('https://www.industrywala.co/wp-content/uploads/2025/11/6-300x109.jpg');">
+            </div>
+
+            <!-- Background Slide 2 - Clean pattern (REMOVED heavy gradient) -->
+            <div class="bg-slide"
+                style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1200 800%27%3E%3Crect fill=%27%23f5f5f5%27 width=%271200%27 height=%27800%27/%3E%3Cpath d=%27M0,400 L300,400 L300,600 L600,600 L600,200 L900,200 L900,500 L1200,500%27 stroke=%27%23d32f2f%27 stroke-width=%2750%27 fill=%27none%27 opacity=%270.15%27/%3E%3C/svg%3E');">
+            </div>
+
+            <!-- Background Slide 3 - Clean grid (REMOVED heavy gradient) -->
+            <div class="bg-slide"
+                style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 1200 800%27%3E%3Crect fill=%27%23f5f5f5%27 width=%271200%27 height=%27800%27/%3E%3Cg stroke=%27%2343a047%27 stroke-width=%273%27 opacity=%270.1%27%3E%3Cline x1=%270%27 y1=%27100%27 x2=%271200%27 y2=%27100%27/%3E%3Cline x1=%270%27 y1=%27200%27 x2=%271200%27 y2=%27200%27/%3E%3Cline x1=%270%27 y1=%27300%27 x2=%271200%27 y2=%27300%27/%3E%3Cline x1=%270%27 y1=%27400%27 x2=%271200%27 y2=%27400%27/%3E%3Cline x1=%270%27 y1=%27500%27 x2=%271200%27 y2=%27500%27/%3E%3Cline x1=%27200%27 y1=%270%27 x2=%27200%27 y2=%27800%27/%3E%3Cline x1=%27400%27 y1=%270%27 x2=%27400%27 y2=%27800%27/%3E%3Cline x1=%27600%27 y1=%270%27 x2=%27600%27 y2=%27800%27/%3E%3Cline x1=%27800%27 y1=%270%27 x2=%27800%27 y2=%27800%27/%3E%3C/g%3E%3C/svg%3E');">
+            </div>
+        </div>
+
+        <!-- Content Layer -->
+        <div class="container mx-auto px-4 relative z-10 parallax-layer">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Complete Product Range</h2>
+                <p class="text-gray-600 text-lg">Everything you need under one roof</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Pipes & Fittings -->
+                <div
+                    class="product-card-animated border-2 border-blue-100 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 hover:border-primary hover:scale-105">
+                    <div
+                        class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg transform transition-transform hover:rotate-12">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-4">Pipes & Fittings</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            MS & GI Pipes
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            PVC Pipes
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            Steel Tubes
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            Coupling & Elbow
+                        </li>
+                    </ul>
+                    <a href="products.html" class="inline-block mt-6 text-secondary font-bold hover:underline">Learn
+                        More →</a>
+                </div>
+
+                <!-- Industrial Valves -->
+                <div
+                    class="product-card-animated border-2 border-red-100 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 hover:border-secondary hover:scale-105">
+                    <div
+                        class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mb-6 shadow-lg transform transition-transform hover:rotate-12">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Industrial Valves</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                            Gate Valves
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                            Globe Valves
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                            Ball Valves
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                            Butterfly Valves
+                        </li>
+                    </ul>
+                    <a href="products.html" class="inline-block mt-6 text-secondary font-bold hover:underline">Learn
+                        More →</a>
+                </div>
+
+                <!-- Accessories -->
+                <div
+                    class="product-card-animated border-2 border-green-100 rounded-2xl p-8 hover:shadow-2xl transition-all duration-300 hover:border-green-600 hover:scale-105">
+                    <div
+                        class="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6 shadow-lg transform transition-transform hover:rotate-12">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
+                        </svg> 
+                    </div>
+                    <h3 class="text-2xl font-bold text-green-700 mb-4">Accessories</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            Butt Weld Fittings
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            Forged Flanges
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            Ball Bearings
+                        </li>
+                        <li class="flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            Nuts & Bolts
+                        </li>
+                    </ul>
+                    <a href="products.html" class="inline-block mt-6 text-secondary font-bold hover:underline">Learn
+                        More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-red-100 text-secondary px-4 py-1 rounded-full text-sm font-bold mb-4">
+                    WHY CHOOSE US
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Your Trusted Partner</h2>
+                <p class="text-gray-600 text-lg">Quality, reliability, and service excellence since 1969</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">ISO Certified</h3>
+                    <p class="text-gray-600">ISO 9001:2008 & ISI certified quality products</p>
+                </div>
+
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">55+ Years</h3>
+                    <p class="text-gray-600">Established in 1969 with proven track record</p>
+                </div>
+
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Expert Team</h3>
+                    <p class="text-gray-600">Experienced professionals to guide you</p>
+                </div>
+
+                <div class="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition">
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Quality Products</h3>
+                    <p class="text-gray-600">ASTM, IBR, JIS grade materials</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-primary via-blue-900 to-blue-800 text-white py-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\" 60\"
+                height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\"
+                fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36
+                34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6
+                4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+        </div>
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl mb-10 text-blue-100 max-w-2xl mx-auto">Contact us today for all your industrial valve and
+                pipe fitting needs. Get expert consultation and competitive quotes.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:+917122345678"
+                    class="bg-secondary hover:bg-red-700 text-white font-bold px-10 py-4 rounded-lg transition transform hover:scale-105 shadow-2xl flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                        </path>
+                    </svg>
+                    Call Now
+                </a>
+                <button onclick="openQuoteForm()"
+                    class="bg-white hover:bg-gray-100 text-primary font-bold px-10 py-4 rounded-lg transition transform hover:scale-105 shadow-2xl flex items-center">
+                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                    Get Quote
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-secondary">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">GM</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Gupta Machinery</h3>
+                            <p class="text-xs text-secondary font-semibold">Since 1969</p>
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4">Authorized dealers for industrial valves, pipes, and fittings in Central
+                        India.</p>
+                    <div class="text-sm font-semibold text-yellow-400">GST: 27AABFG1298F1ZH</div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-secondary transition">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-secondary transition">Products</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Products</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="products.html" class="hover:text-secondary transition">Industrial Valves</a></li>
+                        <li><a href="products.html" class="hover:text-secondary transition">Pipes & Fittings</a></li>
+                        <li><a href="products.html" class="hover:text-secondary transition">Ball Bearings</a></li>
+                        <li><a href="products.html" class="hover:text-secondary transition">Flanges</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-secondary" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Opposite Daga Hospital, Gandhibagh, Nagpur, Maharashtra</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                                </path>
+                            </svg>
+                            <span>info@guptamachinery.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            <span>+91 712 234 5678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p class="mb-2">&copy; 2026 Gupta Machinery Stores. All rights reserved.</p>
+                <p class="text-gray-500">Monday - Saturday: 10:30 AM - 6:00 PM | Sunday: Closed</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quote Form Modal -->
+    <div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity">
+        <div id="quoteModalContent"
+            class="fixed right-0 top-0 h-full w-full md:w-[500px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto">
+            <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-6">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold">Request a Quote</h3>
+                        <p class="text-blue-100 text-sm mt-1">Get competitive pricing for your needs</p>
+                    </div>
+                    <button onclick="closeQuoteForm()" class="text-white hover:text-gray-200 transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <form id="quote-form" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
+                    <input type="text" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Email Address *</label>
+                    <input type="email" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
+                    <input type="tel" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Company Name</label>
+                    <input type="text"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Product Category *</label>
+                    <select required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option value="">Select a category</option>
+                        <option value="gate-valves">Gate Valves</option>
+                        <option value="globe-valves">Globe Valves</option>
+                        <option value="ball-valves">Ball Valves</option>
+                        <option value="non-return-valves">Non Return Valves</option>
+                        <option value="butterfly-valves">Butterfly Valves</option>
+                        <option value="pipes-fittings">Pipes & Fittings</option>
+                        <option value="flanges">Flanges</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Quantity Required</label>
+                    <input type="text" placeholder="e.g., 50 units"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-2">Requirements / Message *</label>
+                    <textarea required rows="4"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                        placeholder="Please describe your requirements..."></textarea>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-4 rounded-lg transition transform hover:scale-105 shadow-lg">
+                    Submit Quote Request
+                </button>
+
+                <p class="text-xs text-gray-500 text-center">We'll respond to your quote request within 24 hours</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Hero Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+
+        function changeSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('w-8');
+            dots[currentSlide].classList.add('bg-white/50');
+            dots[currentSlide].classList.remove('bg-white');
+
+            currentSlide = index;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('w-8');
+            dots[currentSlide].classList.add('bg-white');
+            dots[currentSlide].classList.remove('bg-white/50');
+        }
+
+
+        // Background carousel auto-rotation for product section
+        let currentBgSlide = 0;
+        const bgSlides = document.querySelectorAll('.bg-slide');
+        const totalBgSlides = bgSlides.length;
+
+        function rotateBgSlide() {
+            bgSlides[currentBgSlide].classList.remove('active');
+            currentBgSlide = (currentBgSlide + 1) % totalBgSlides;
+            bgSlides[currentBgSlide].classList.add('active');
+        }
+
+        // Auto-rotate every 5 seconds
+        setInterval(rotateBgSlide, 5000);
+
+        // Parallax scroll effect
+        const productSection = document.getElementById('productSection');
+        const parallaxLayer = document.querySelector('.parallax-layer');
+        const parallaxBg = document.querySelector('.parallax-bg');
+
+        if (productSection && parallaxLayer && parallaxBg) {
+            window.addEventListener('scroll', function () {
+                const scrolled = window.pageYOffset;
+                const sectionTop = productSection.offsetTop;
+                const sectionHeight = productSection.offsetHeight;
+
+                // Only apply parallax when section is in view
+                if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+                    const offset = (scrolled - sectionTop) * 0.5;
+                    parallaxBg.style.transform = `translateY(${offset}px)`;
+                    parallaxLayer.style.transform = `translateY(${-offset * 0.3}px)`;
+                }
+            });
+
+            // Mouse move parallax effect
+            productSection.addEventListener('mousemove', function (e) {
+                const rect = productSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const moveX = (x - rect.width / 2) * 0.01;
+                const moveY = (y - rect.height / 2) * 0.01;
+
+                parallaxBg.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.1)`;
+            });
+
+            productSection.addEventListener('mouseleave', function () {
+                parallaxBg.style.transform = 'translate(0, 0) scale(1)';
+            });
+        }
+
+    </script>
+</body>
+
+</html>
