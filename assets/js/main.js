@@ -93,3 +93,74 @@ document.addEventListener('click', function(event) {
         }
     }
 });
+
+// Hero Carousel JavaScript (5 Slides)
+// Simple Auto-Carousel - 3 Seconds
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-bg-slide');
+
+function changeSlide(index) {
+    // Remove active from current slide
+    slides[currentSlide].classList.remove('active');
+    
+    // Set new slide
+    currentSlide = index;
+    
+    // Add active to new slide
+    slides[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+    const nextIndex = (currentSlide + 1) % slides.length;
+    changeSlide(nextIndex);
+}
+
+function prevSlide() {
+    const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+    changeSlide(prevIndex);
+}
+
+// Auto-rotate every 3 seconds
+let autoSlideInterval = setInterval(nextSlide, 3000);
+
+// Pause on hover (optional)
+const heroSection = document.querySelector('section');
+if (heroSection) {
+    heroSection.addEventListener('mouseenter', () => {
+        clearInterval(autoSlideInterval);
+    });
+    
+    heroSection.addEventListener('mouseleave', () => {
+        autoSlideInterval = setInterval(nextSlide, 3000);
+    });
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft') prevSlide();
+    if (e.key === 'ArrowRight') nextSlide();
+});
+
+// Touch swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (heroSection) {
+    heroSection.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    heroSection.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+}
+
+function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+        nextSlide();
+    }
+    if (touchEndX > touchStartX + 50) {
+        prevSlide();
+    }
+}

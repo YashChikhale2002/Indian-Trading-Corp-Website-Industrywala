@@ -227,127 +227,66 @@
         </div>
     </header>
 
-    <!-- Hero Section with Carousel -->
-    <section
-        class="relative bg-gradient-to-br from-primary via-blue-900 to-blue-800 text-white py-24 diagonal-split overflow-hidden">
-        <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=\" 60\"
-                height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\"
-                fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.4\"%3E%3Cpath d=\"M36
-                34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6
-                4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+<!-- Hero Section with Clear Background Image Carousel -->
+<!-- Clean Hero Carousel - No Counter, No Dots, Auto-rotate -->
+<section class="relative w-full overflow-hidden" style="height: 70vh;">
+    
+    <!-- Background Image Carousel Container -->
+    <div class="absolute inset-0">
+        <!-- Slide 1 -->
+        <div class="hero-bg-slide active absolute inset-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel6.jpg" 
+                 alt="Industrial Products" 
+                 class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-bg-slide absolute inset-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel2.jpg" 
+                 alt="Industrial Products" 
+                 class="w-full h-full object-cover">
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-bg-slide absolute inset-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel3.jpg" 
+                 alt="Industrial Products" 
+                 class="w-full h-full object-cover">
         </div>
 
-        <!-- Hero Carousel Slides -->
-        <div class="container mx-auto px-4 relative z-10" id="heroCarousel">
-            <!-- Slide 1 -->
-            <div class="hero-slide active">
-                <div class="max-w-4xl mx-auto text-center">
-                    <div
-                        class="inline-block bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4 opacity-0 fade-in-up">
-                        ⭐ TRUSTED SINCE 1969
-                    </div>
-                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight opacity-0 fade-in-up delay-100">
-                        Premium Industrial Valves <br />& Pipe Solutions
-                    </h2>
-                    <p class="text-xl md:text-2xl mb-8 text-blue-100 opacity-0 fade-in-up delay-200">
-                        Authorized Stockiest for Central India | ISO & ISI Certified
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4 opacity-0 fade-in-up delay-300">
-                        <a href="products.html"
-                            class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                            Explore Products
-                        </a>
-                        <button onclick="openQuoteForm()"
-                            class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                            Request Quote
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="hero-slide">
-                <div class="max-w-4xl mx-auto text-center">
-                    <div class="inline-block bg-green-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
-                        ✓ ISO 9001:2008 CERTIFIED
-                    </div>
-                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                        Quality You Can Trust<br />Service You Deserve
-                    </h2>
-                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
-                        ASTM, IBR, JIS Grade Materials | 55+ Years Experience
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <a href="about.html"
-                            class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                            About Us
-                        </a>
-                        <a href="contact.html"
-                            class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                            Contact Us
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="hero-slide">
-                <div class="max-w-4xl mx-auto text-center">
-                    <div class="inline-block bg-yellow-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
-                        🏆 INDUSTRY LEADER
-                    </div>
-                    <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                        Complete Industrial<br />Supply Solutions
-                    </h2>
-                    <p class="text-xl md:text-2xl mb-8 text-blue-100">
-                        500+ Products | 1000+ Satisfied Clients | Competitive Pricing
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <button onclick="openQuoteForm()"
-                            class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                            Get Free Quote
-                        </button>
-                        <a href="products.html"
-                            class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                            View Catalog
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <!-- Slide 4 -->
+        <div class="hero-bg-slide absolute inset-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel4.jpg" 
+                 alt="Industrial Products" 
+                 class="w-full h-full object-cover">
         </div>
 
-        <!-- Stats Section -->
-        <div class="container mx-auto px-4 relative z-10 mt-16">
-            <div class="grid grid-cols-3 gap-6 max-w-4xl mx-auto opacity-0 fade-in-up delay-400">
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-yellow-400">55+</div>
-                    <div class="text-sm text-blue-200 mt-1">Years Experience</div>
-                </div>
-                <div class="text-center border-x border-blue-700">
-                    <div class="text-4xl font-bold text-yellow-400">500+</div>
-                    <div class="text-sm text-blue-200 mt-1">Products</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-yellow-400">1000+</div>
-                    <div class="text-sm text-blue-200 mt-1">Happy Clients</div>
-                </div>
-            </div>
+        <!-- Slide 5 -->
+        <div class="hero-bg-slide absolute inset-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel5.jpg" 
+                 alt="Industrial Products" 
+                 class="w-full h-full object-cover">
         </div>
+    </div>
 
-        <!-- Carousel Controls -->
-        <div class="absolute bottom-8 left-0 right-0 z-20">
-            <div class="flex justify-center space-x-3">
-                <button onclick="changeSlide(0)"
-                    class="hero-dot w-3 h-3 rounded-full bg-white transition-all duration-300"></button>
-                <button onclick="changeSlide(1)"
-                    class="hero-dot w-3 h-3 rounded-full bg-white/50 transition-all duration-300"></button>
-                <button onclick="changeSlide(2)"
-                    class="hero-dot w-3 h-3 rounded-full bg-white/50 transition-all duration-300"></button>
-            </div>
-        </div>
-    </section>
+    <!-- Previous Arrow -->
+    <button onclick="prevSlide()" 
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full transition-all duration-300 shadow-2xl hover:scale-110 group">
+        <svg class="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
+
+    <!-- Next Arrow -->
+    <button onclick="nextSlide()" 
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-3 rounded-full transition-all duration-300 shadow-2xl hover:scale-110 group">
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+        </svg>
+    </button>
+</section>
+
+
 
     <!-- Certification Ribbon -->
     <section class="bg-white border-y-2 border-gray-200 py-8 overflow-hidden">
@@ -519,260 +458,338 @@
             </div>
         </div>
     </section>
-
-    <!-- Product Grid Section with Images -->
-    <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-red-100 text-secondary px-4 py-1 rounded-full text-sm font-bold mb-4">
-                    OUR SPECIALIZATION
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Complete Product Range</h2>
-                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
-                    From valves to fittings, we provide everything you need for your industrial requirements
-                </p>
+       
+        <!-- Product Grid Section with Images -->
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <div class="inline-block bg-red-100 text-secondary px-4 py-1 rounded-full text-sm font-bold mb-4">
+                OUR SPECIALIZATION
             </div>
-
-            <!-- Product Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-7xl mx-auto">
-                <!-- Gate Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔩</div>
-                            <div class="text-sm font-bold text-gray-800">Gate Valve</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Gate Valve
-                    </div>
-                </div>
-
-                <!-- Globe Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">⚙️</div>
-                            <div class="text-sm font-bold text-gray-800">Globe Valve</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Globe Valve
-                    </div>
-                </div>
-
-                <!-- Non Return Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔄</div>
-                            <div class="text-sm font-bold text-gray-800">Non Return Valve</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Non Return Valve
-                    </div>
-                </div>
-
-                <!-- Ball Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">⚽</div>
-                            <div class="text-sm font-bold text-gray-800">Ball Valve</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Ball Valve
-                    </div>
-                </div>
-
-                <!-- Butterfly Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🦋</div>
-                            <div class="text-sm font-bold text-gray-800">Butterfly Valve</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Butterfly Valve
-                    </div>
-                </div>
-
-                <!-- Knife Edge Gate Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔪</div>
-                            <div class="text-sm font-bold text-gray-800">Knife Edge</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Knife Edge Gate
-                    </div>
-                </div>
-
-                <!-- Piston Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔧</div>
-                            <div class="text-sm font-bold text-gray-800">Piston Valve</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Piston Valve
-                    </div>
-                </div>
-
-                <!-- Plug Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔌</div>
-                            <div class="text-sm font-bold text-gray-800">Plug Valve</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Plug Valve
-                    </div>
-                </div>
-
-                <!-- Diaphragm Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">💿</div>
-                            <div class="text-sm font-bold text-gray-800">Diaphragm</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Diaphragm Valve
-                    </div>
-                </div>
-
-                <!-- Strainer Valve -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔍</div>
-                            <div class="text-sm font-bold text-gray-800">Strainer</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Strainer Valve
-                    </div>
-                </div>
-
-                <!-- Flanges -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">⭕</div>
-                            <div class="text-sm font-bold text-gray-800">Flanges</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        Flanges
-                    </div>
-                </div>
-
-                <!-- MS Pipes -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">📏</div>
-                            <div class="text-sm font-bold text-gray-800">MS Pipes</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        M.S Pipes Fittings
-                    </div>
-                </div>
-
-                <!-- IBR Pipes -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔩</div>
-                            <div class="text-sm font-bold text-gray-800">IBR Pipes</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        IBR Pipes Fittings
-                    </div>
-                </div>
-
-                <!-- GI Pipes -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">🔧</div>
-                            <div class="text-sm font-bold text-gray-800">GI Pipes</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        GI Pipes Fittings
-                    </div>
-                </div>
-
-                <!-- SS Pipes -->
-                <div
-                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
-                    <div
-                        class="aspect-square bg-white flex items-center justify-center p-4 group-hover:bg-gray-50 transition">
-                        <div class="text-center">
-                            <div class="text-6xl mb-2">✨</div>
-                            <div class="text-sm font-bold text-gray-800">SS Pipes</div>
-                        </div>
-                    </div>
-                    <div class="bg-secondary text-white text-center py-2 text-sm font-bold">
-                        SS Pipes Fittings
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="products.html"
-                    class="inline-flex items-center bg-secondary hover:bg-red-700 text-white font-bold px-10 py-4 rounded-lg transition transform hover:scale-105 shadow-lg text-lg">
-                    View All Products
-                    <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-                    </svg>
-                </a>
-            </div>
+            <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Complete Product Range</h2>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                From valves to fittings, we provide everything you need for your industrial requirements
+            </p>
         </div>
-    </section>
+
+        
+        <div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-10 gap-4 max-w-full mx-auto">
+            
+            <!-- 1. Gate Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Gate Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Gate Valve
+                </div>
+            </div>
+
+            <!-- 2. Globe Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Globe Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Globe Valve
+                </div>
+            </div>
+
+            <!-- 3. Non Return Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Non-return-Valve-1.png" alt="Non Return Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Non Return Valve
+                </div>
+            </div>
+
+            <!-- 4. Ball Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Ball-Valve.png" alt="Ball Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Ball Valve
+                </div>
+            </div>
+
+            <!-- 5. Butterfly Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Butterfly-Valve.png" alt="Butterfly Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Butterfly Valve
+                </div>
+            </div>
+
+            <!-- 6. Knife Edge Gate Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/knife-Edge-gate-valve.png" alt="Knife Edge Gate Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Knife Edge Gate
+                </div>
+            </div>
+
+            <!-- 7. Piston Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/piston-valve.png" alt="Piston Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Piston Valve
+                </div>
+            </div>
+
+            <!-- 8. Plug Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Plug-Valve.png" alt="Plug Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Plug Valve
+                </div>
+            </div>
+
+            <!-- 9. Diaphragm Valve -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Diaphagram-valves.jpg" alt="Diaphragm Valve" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Diaphragm Valve
+                </div>
+            </div>
+
+            <!-- 10. Strainer -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Strainers.png" alt="Strainer" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Strainers
+                </div>
+            </div>
+
+            <!-- 11. Safety Valves -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Safety-Valves.png" alt="Safety Valves" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Safety Valves
+                </div>
+            </div>
+
+            <!-- 12. PRV -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/PRV.png" alt="PRV" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    PRV
+                </div>
+            </div>
+
+            <!-- 13. Air Valves -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Air-alves.png" alt="Air Valves" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Air Valves
+                </div>
+            </div>
+
+            <!-- 14. Flanges -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Flanges.png" alt="Flanges" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Flanges
+                </div>
+            </div>
+
+            <!-- 15. MS Pipes Fittings -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/MS-pipes-Fittings.png" alt="MS Pipes Fittings" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    MS Pipes
+                </div>
+            </div>
+
+            <!-- 16. IBR Pipes Fittings -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/IBR-Pipes-Fittings.png" alt="IBR Pipes Fittings" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    IBR Pipes
+                </div>
+            </div>
+
+            <!-- 17. GI Pipes Fittings -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/GI-pipes-Fittings.png" alt="GI Pipes Fittings" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    GI Pipes
+                </div>
+            </div>
+
+            <!-- 18. SS Pipes Fittings -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/SS-Pipes-Fittings.png" alt="SS Pipes Fittings" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    SS Pipes
+                </div>
+            </div>
+
+            <!-- 19. HDPE Pipes -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/HDPE-pipes-and-fittings.png" alt="HDPE Pipes" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    HDPE Pipes
+                </div>
+            </div>
+
+            <!-- 20. Seamless Pipes -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/SEAMLESS-PIPES-11.png" alt="Seamless Pipes" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Seamless Pipes
+                </div>
+            </div>
+
+            <!-- 21. ERW Pipes -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/ERW-PIPES-11-1.png" alt="ERW Pipes" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    ERW Pipes
+                </div>
+            </div>
+
+            <!-- 22. Brass Fittings -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Bras-Pipe-Fittings.png" alt="Brass Fittings" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Brass Fittings
+                </div>
+            </div>
+
+            <!-- 23. Hydraulic Fittings -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Hydraulic-Pipes-Fittings.png" alt="Hydraulic Fittings" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Hydraulic
+                </div>
+            </div>
+
+            <!-- 24. Pneumatic Fitting -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Pneumatic-pipe-Fitting.png" alt="Pneumatic Fitting" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Pneumatic
+                </div>
+            </div>
+
+            <!-- 25. Dairy Valves -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Dairy-Valves-Fittings.png" alt="Dairy Valves" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Dairy Valves
+                </div>
+            </div>
+
+            <!-- 26. Boiler Mounting -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Boiler-Mounting.png" alt="Boiler Mounting" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Boiler Mounting
+                </div>
+            </div>
+
+            <!-- 27. Boiler Tubes -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Boiler-Tubes.png" alt="Boiler Tubes" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Boiler Tubes
+                </div>
+            </div>
+
+            <!-- 28. Pressure Gauges -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Temprature-Pressure-Gaugaes.png" alt="Pressure Gauges" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Gauges
+                </div>
+            </div>
+
+            <!-- 29. Fire Fighting -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Fire-Fighting-Accsesories.png" alt="Fire Fighting" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Fire Fighting
+                </div>
+            </div>
+
+            <!-- 30. Hose Clips -->
+            <div class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+                <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
+                    <img src="/Indian-Trading-Corp-Website-IndustryWala/assets/images/Hose-Clips.png" alt="Hose Clips" class="w-full h-full object-contain">
+                </div>
+                <div class="bg-secondary text-white text-center py-2 text-xs font-bold">
+                    Hose Clips
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="products.html"
+                class="inline-flex items-center bg-secondary hover:bg-red-700 text-white font-bold px-10 py-4 rounded-lg transition transform hover:scale-105 shadow-lg text-lg">
+                View All Products
+                <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
 
 
 
