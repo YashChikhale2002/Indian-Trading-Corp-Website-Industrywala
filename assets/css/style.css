@@ -241,7 +241,7 @@ img {
 /* Very Light Overlay - Image Clear */
 
 section.bg-gradient-to-r.from-primary {
-    background-image: url('/Indian-Trading-Corp-Website-IndustryWala/assets/images/Fittings.png') !important;
+    background-image: url('/Indian-Trading-Corp-Website-IndustryWala/assets/images/crousel8.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -282,3 +282,12 @@ section.bg-gradient-to-r.from-primary p {
 section.bg-gradient-to-r.from-primary > .absolute.inset-0.opacity-10 {
     display: none;
 }
+/* Animated gradient background */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+

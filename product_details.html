@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Indian Traders Corp | Valves, Pipes & Fittings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a2463',
+                        secondary: '#d32f2f',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e5e5;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(10, 36, 99, 0.12);
+        }
+
+        .product-image-container {
+            position: relative;
+            padding: 2rem;
+            background: #fafafa;
+            min-height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .product-image-container img {
+            max-width: 100%;
+            height: 160px;
+            object-fit: contain;
+        }
+
+        .ibr-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #d32f2f;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: white;
+            color: #0a2463;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 10px;
+            font-weight: 600;
+            border: 1px solid #e5e5e5;
+        }
+
+        .product-info {
+            padding: 1.25rem;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0a2463;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .product-subtitle {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-details, .btn-enquiry {
+            flex: 1;
+            padding: 0.65rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-details {
+            border: 2px solid #0a2463;
+            background: white;
+            color: #0a2463;
+        }
+
+        .btn-details:hover {
+            background: #0a2463;
+            color: white;
+        }
+
+        .btn-enquiry {
+            border: none;
+            background: #d32f2f;
+            color: white;
+        }
+
+        .btn-enquiry:hover {
+            background: #b71c1c;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+            color: #666;
+            border: 2px solid #e5e5e5;
+        }
+
+        .filter-btn:hover {
+            border-color: #0a2463;
+            color: #0a2463;
+        }
+
+        .filter-btn.active {
+            background: #0a2463;
+            color: white;
+            border-color: #0a2463;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .product-section {
+            display: none;
+        }
+
+        .product-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+   <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
+    <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between py-2">
+            <!-- Logo - COMPACT & BIGGER -->
+            <div class="flex items-center space-x-2">
+                <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/ITC LOGO.png" 
+                     alt="Indian Traders Corp Logo" 
+                     class="h-16 w-auto object-contain">
+                <h1 class="text-2xl font-bold text-primary leading-tight">Indian Traders Corp</h1>
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
+                <li><a href="about.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">About</a></li>
+                <li><a href="products.html" class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
+                <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 pt-2">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Home</a></li>
+                <li><a href="about.html" class="block py-3 text-primary font-bold hover:bg-gray-50 px-3 rounded-lg">About</a></li>
+                <li><a href="products.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Products</a></li>
+                <li><a href="contact.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="w-full bg-secondary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition shadow-md mt-2">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+    <!-- Hero Banner -->
+    <section class="relative w-full overflow-hidden" style="height: 50vh; min-height: 300px;">
+        <div class="absolute inset-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel6.jpg" 
+                 alt="Industrial Products" 
+                 style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+        </div>
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div class="text-center text-white">
+                <h2 class="text-4xl md:text-5xl font-bold mb-3">Our Products</h2>
+                <p class="text-lg md:text-xl">Quality Industrial Valves, Pipes & Fittings</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="bg-white border-b border-gray-200 py-8 sticky top-[89px] z-40 shadow-sm">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="filterProducts('all')" class="filter-btn active" id="btn-all">All Products</button>
+                <button onclick="filterProducts('valves')" class="filter-btn" id="btn-valves">Gate / Globe Valves</button>
+                <button onclick="filterProducts('ball')" class="filter-btn" id="btn-ball">Ball / Check Valves</button>
+                <button onclick="filterProducts('pipes')" class="filter-btn" id="btn-pipes">Pipes & Fittings</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- All Products Section -->
+    <section id="all-section" class="py-12 bg-white product-section active">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">All Industrial Products</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Bronze IBR Globe Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bronze IBR Certified Globe Steam Stop Valve</h3>
+                        <p class="product-subtitle">IBR Approved • High Temperature</p>
+                        <p class="product-price">₹1,384 - ₹19,688</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Bronze IBR Certified Globe Steam Stop Valve', 'IBR Approved • High Temperature', 'IBR Certified steam stop valve for high-temperature applications in boiler systems', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹1,384 - ₹19,688', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Cast Iron Globe Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Iron IBR Certified Globe Steam Stop Valve</h3>
+                        <p class="product-subtitle">ASTM Grade • Flanged End</p>
+                        <p class="product-price">₹1,892 - ₹26,975</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Iron IBR Certified Globe Steam Stop Valve', 'ASTM Grade • Flanged End', 'Heavy-duty cast iron globe valve with IBR certification for industrial steam applications', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹1,892 - ₹26,975', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Cast Steel Gate Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Gate Valve Class 150#</h3>
+                        <p class="product-subtitle">Class 150 • Bolted Bonnet</p>
+                        <p class="product-price">₹4,928 - ₹76,500</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 150#', 'Class 150 • Bolted Bonnet', 'Cast steel gate valve with class 150 pressure rating for reliable on/off control', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹4,928 - ₹76,500', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Cast Steel Gate Valve 300">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Gate Valve Class 300#</h3>
+                        <p class="product-subtitle">Class 300 • High Pressure</p>
+                        <p class="product-price">₹13,674 - ₹2,15,009</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 300#', 'Class 300 • High Pressure', 'High-pressure gate valve for critical industrial applications with class 300 rating', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹13,674 - ₹2,15,009', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Cast Steel Globe Valve 150">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Globe Valve Class 150#</h3>
+                        <p class="product-subtitle">Class 150 • Steam Service</p>
+                        <p class="product-price">₹3,825 - ₹88,378</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 150#', 'Class 150 • Steam Service', 'Globe valve for steam and high-temperature service with precision flow control', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹3,825 - ₹88,378', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Cast Steel Globe Valve 300">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Globe Valve Class 300#</h3>
+                        <p class="product-subtitle">Class 300 • Bolted Bonnet</p>
+                        <p class="product-price">₹7,845 - ₹1,52,880</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 300#', 'Class 300 • Bolted Bonnet', 'High-pressure globe valve with IBR certification for demanding applications', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹7,845 - ₹1,52,880', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Forged Steel Gate Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel A-105 IBR Certified Gate Valve</h3>
+                        <p class="product-subtitle">Forged A-105 • Socket Weld</p>
+                        <p class="product-price">₹2,450 - ₹18,900</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel A-105 IBR Certified Gate Valve', 'Forged A-105 • Socket Weld', 'Forged steel gate valve for high-pressure applications with superior strength', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹2,450 - ₹18,900', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Forged Steel Globe Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel A-105 IBR Certified Globe Valve</h3>
+                        <p class="product-subtitle">Forged A-105 • Threaded</p>
+                        <p class="product-price">₹2,180 - ₹16,750</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel A-105 IBR Certified Globe Valve', 'Forged A-105 • Threaded', 'Forged steel globe valve with threaded connections for easy installation', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹2,180 - ₹16,750', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Ball / Check Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Ball-Valve.png" alt="Forged Steel Check Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel F-304 IBR Certified Check Valve</h3>
+                        <p class="product-subtitle">SS 304 • Swing Type</p>
+                        <p class="product-price">₹3,250 - ₹24,500</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel F-304 IBR Certified Check Valve', 'SS 304 • Swing Type', 'Stainless steel check valve with swing type design for backflow prevention', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Ball-Valve.png', '₹3,250 - ₹24,500', 'Ball / Check Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Forged Steel Gate Valve F-304">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel F-304 IBR Certified Gate Valve</h3>
+                        <p class="product-subtitle">SS 304 • Flanged End</p>
+                        <p class="product-price">₹3,850 - ₹29,200</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel F-304 IBR Certified Gate Valve', 'SS 304 • Flanged End', 'Stainless steel gate valve for corrosive environments with excellent durability', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹3,850 - ₹29,200', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 11 - MS Pipes -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Pipes & Fittings</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/MS-pipes-Fittings.png" alt="MS Pipes">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MS Pipes & Fittings</h3>
+                        <p class="product-subtitle">Mild Steel • ERW, Seamless</p>
+                        <p class="product-price">₹850 - ₹12,500</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('MS Pipes & Fittings', 'Mild Steel • ERW, Seamless', 'High-quality mild steel pipes for industrial applications with ERW and seamless options', '/Indian-Trading-Corp-Website-Industrywala/assets/images/MS-pipes-Fittings.png', '₹850 - ₹12,500', 'Pipes & Fittings')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 12 - SS Pipes -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Pipes & Fittings</span>
+                        <span class="ibr-badge">Premium</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/SS-Pipes-Fittings.png" alt="SS Pipes">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">SS Pipes & Fittings</h3>
+                        <p class="product-subtitle">SS304, SS316, SS321</p>
+                        <p class="product-price">₹2,450 - ₹35,800</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('SS Pipes & Fittings', 'SS304, SS316, SS321', 'Premium stainless steel pipes and fittings for corrosion-resistant applications', '/Indian-Trading-Corp-Website-Industrywala/assets/images/SS-Pipes-Fittings.png', '₹2,450 - ₹35,800', 'Pipes & Fittings')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 13 - GI Pipes -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Pipes & Fittings</span>
+                        <span class="ibr-badge">ISI Mark</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/GI-pipes-Fittings.png" alt="GI Pipes">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">GI Pipes & Fittings</h3>
+                        <p class="product-subtitle">Galvanized Iron, ISI Certified</p>
+                        <p class="product-price">₹1,200 - ₹18,900</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('GI Pipes & Fittings', 'Galvanized Iron, ISI Certified', 'ISI certified galvanized iron pipes with superior corrosion protection', '/Indian-Trading-Corp-Website-Industrywala/assets/images/GI-pipes-Fittings.png', '₹1,200 - ₹18,900', 'Pipes & Fittings')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Gate/Globe Valves Section -->
+    <section id="valves-section" class="py-12 bg-white product-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Gate / Globe Valves</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                
+                <!-- Valve Products 1-8 and 10 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Bronze IBR Globe Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Bronze IBR Certified Globe Steam Stop Valve</h3>
+                        <p class="product-subtitle">IBR Approved • High Temperature</p>
+                        <p class="product-price">₹1,384 - ₹19,688</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Bronze IBR Certified Globe Steam Stop Valve', 'IBR Approved • High Temperature', 'IBR Certified steam stop valve for high-temperature applications in boiler systems', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹1,384 - ₹19,688', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Cast Iron Globe Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Iron IBR Certified Globe Steam Stop Valve</h3>
+                        <p class="product-subtitle">ASTM Grade • Flanged End</p>
+                        <p class="product-price">₹1,892 - ₹26,975</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Iron IBR Certified Globe Steam Stop Valve', 'ASTM Grade • Flanged End', 'Heavy-duty cast iron globe valve with IBR certification for industrial steam applications', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹1,892 - ₹26,975', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Cast Steel Gate Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Gate Valve Class 150#</h3>
+                        <p class="product-subtitle">Class 150 • Bolted Bonnet</p>
+                        <p class="product-price">₹4,928 - ₹76,500</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 150#', 'Class 150 • Bolted Bonnet', 'Cast steel gate valve with class 150 pressure rating for reliable on/off control', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹4,928 - ₹76,500', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Cast Steel Gate Valve 300">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Gate Valve Class 300#</h3>
+                        <p class="product-subtitle">Class 300 • High Pressure</p>
+                        <p class="product-price">₹13,674 - ₹2,15,009</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 300#', 'Class 300 • High Pressure', 'High-pressure gate valve for critical industrial applications with class 300 rating', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹13,674 - ₹2,15,009', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Cast Steel Globe Valve 150">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Globe Valve Class 150#</h3>
+                        <p class="product-subtitle">Class 150 • Steam Service</p>
+                        <p class="product-price">₹3,825 - ₹88,378</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 150#', 'Class 150 • Steam Service', 'Globe valve for steam and high-temperature service with precision flow control', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹3,825 - ₹88,378', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR Certified</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Cast Steel Globe Valve 300">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Cast Steel IBR Certified Globe Valve Class 300#</h3>
+                        <p class="product-subtitle">Class 300 • Bolted Bonnet</p>
+                        <p class="product-price">₹7,845 - ₹1,52,880</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 300#', 'Class 300 • Bolted Bonnet', 'High-pressure globe valve with IBR certification for demanding applications', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹7,845 - ₹1,52,880', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Forged Steel Gate Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel A-105 IBR Certified Gate Valve</h3>
+                        <p class="product-subtitle">Forged A-105 • Socket Weld</p>
+                        <p class="product-price">₹2,450 - ₹18,900</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel A-105 IBR Certified Gate Valve', 'Forged A-105 • Socket Weld', 'Forged steel gate valve for high-pressure applications with superior strength', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹2,450 - ₹18,900', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Forged Steel Globe Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel A-105 IBR Certified Globe Valve</h3>
+                        <p class="product-subtitle">Forged A-105 • Threaded</p>
+                        <p class="product-price">₹2,180 - ₹16,750</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel A-105 IBR Certified Globe Valve', 'Forged A-105 • Threaded', 'Forged steel globe valve with threaded connections for easy installation', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png', '₹2,180 - ₹16,750', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Gate / Globe Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Forged Steel Gate Valve F-304">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel F-304 IBR Certified Gate Valve</h3>
+                        <p class="product-subtitle">SS 304 • Flanged End</p>
+                        <p class="product-price">₹3,850 - ₹29,200</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel F-304 IBR Certified Gate Valve', 'SS 304 • Flanged End', 'Stainless steel gate valve for corrosive environments with excellent durability', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png', '₹3,850 - ₹29,200', 'Gate / Globe Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Ball/Check Valves Section -->
+    <section id="ball-section" class="py-12 bg-white product-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Ball / Check Valves</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                
+                <!-- Ball/Check Valve Product 9 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Ball / Check Valves</span>
+                        <span class="ibr-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Ball-Valve.png" alt="Forged Steel Check Valve">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Forged Steel F-304 IBR Certified Check Valve</h3>
+                        <p class="product-subtitle">SS 304 • Swing Type</p>
+                        <p class="product-price">₹3,250 - ₹24,500</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('Forged Steel F-304 IBR Certified Check Valve', 'SS 304 • Swing Type', 'Stainless steel check valve with swing type design for backflow prevention', '/Indian-Trading-Corp-Website-Industrywala/assets/images/Ball-Valve.png', '₹3,250 - ₹24,500', 'Ball / Check Valves')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Pipes Section -->
+    <section id="pipes-section" class="py-12 bg-white product-section">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-primary mb-8 text-center">Pipes & Fittings</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+                
+                <!-- Pipes Products 11-13 -->
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Pipes & Fittings</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/MS-pipes-Fittings.png" alt="MS Pipes">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">MS Pipes & Fittings</h3>
+                        <p class="product-subtitle">Mild Steel • ERW, Seamless</p>
+                        <p class="product-price">₹850 - ₹12,500</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('MS Pipes & Fittings', 'Mild Steel • ERW, Seamless', 'High-quality mild steel pipes for industrial applications with ERW and seamless options', '/Indian-Trading-Corp-Website-Industrywala/assets/images/MS-pipes-Fittings.png', '₹850 - ₹12,500', 'Pipes & Fittings')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Pipes & Fittings</span>
+                        <span class="ibr-badge">Premium</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/SS-Pipes-Fittings.png" alt="SS Pipes">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">SS Pipes & Fittings</h3>
+                        <p class="product-subtitle">SS304, SS316, SS321</p>
+                        <p class="product-price">₹2,450 - ₹35,800</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('SS Pipes & Fittings', 'SS304, SS316, SS321', 'Premium stainless steel pipes and fittings for corrosion-resistant applications', '/Indian-Trading-Corp-Website-Industrywala/assets/images/SS-Pipes-Fittings.png', '₹2,450 - ₹35,800', 'Pipes & Fittings')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image-container">
+                        <span class="category-badge">Pipes & Fittings</span>
+                        <span class="ibr-badge">ISI Mark</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/GI-pipes-Fittings.png" alt="GI Pipes">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">GI Pipes & Fittings</h3>
+                        <p class="product-subtitle">Galvanized Iron, ISI Certified</p>
+                        <p class="product-price">₹1,200 - ₹18,900</p>
+                        <div class="btn-group">
+                            <button onclick="viewProduct('GI Pipes & Fittings', 'Galvanized Iron, ISI Certified', 'ISI certified galvanized iron pipes with superior corrosion protection', '/Indian-Trading-Corp-Website-Industrywala/assets/images/GI-pipes-Fittings.png', '₹1,200 - ₹18,900', 'Pipes & Fittings')" class="btn-details">Details</button>
+                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form Modal -->
+    <div id="enquiryModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-5 rounded-t-2xl sticky top-0 z-10">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold">Request a Quote</h3>
+                        <p class="text-blue-100 text-xs mt-1">Get competitive pricing for your needs</p>
+                    </div>
+                    <button onclick="closeEnquiryForm()" class="text-white hover:text-gray-200 transition p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <form id="enquiry-form" class="p-6" onsubmit="return handleEnquirySubmit(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Full Name *</label>
+                        <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Email Address *</label>
+                        <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Phone Number *</label>
+                        <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="+91 XXXXX XXXXX">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Company Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Your company name">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Product Category *</label>
+                        <select required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                            <option value="">Select a category</option>
+                            <option value="gate-valves">Gate Valves</option>
+                            <option value="globe-valves">Globe Valves</option>
+                            <option value="ball-valves">Ball Valves</option>
+                            <option value="check-valves">Check Valves</option>
+                            <option value="pipes-fittings">Pipes & Fittings</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Quantity Required</label>
+                        <input type="text" placeholder="e.g., 50 units" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Requirements / Message *</label>
+                        <textarea required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Please describe your requirements..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition transform hover:scale-105 shadow-lg mt-4">
+                    Submit Quote Request
+                </button>
+                <p class="text-xs text-gray-500 text-center mt-3">We'll respond to your quote request within 24 hours</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t-4 border-secondary">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">ITC</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Indian Traders Corp</h3>
+                            <p class="text-xs text-secondary font-semibold">Since 1969</p>
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4">Authorized dealers for industrial valves, pipes, and fittings in Central India.</p>
+                    <div class="text-sm font-semibold text-yellow-400">GST: 27AABFG1298F1ZH</div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-secondary transition">About Us</a></li>
+                        <li><a href="product_details.html" class="hover:text-secondary transition">Products</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Products</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-secondary transition">Industrial Valves</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Pipes & Fittings</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Flanges</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Contact</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Opposite Daga Hospital, Gandhibagh, Nagpur, Maharashtra</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>info@indiantraderscorp.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>+91 712 234 5678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p class="mb-2">&copy; 2026 Indian Traders Corp. All rights reserved.</p>
+                <p class="text-gray-500">Designed with excellence for industrial solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function filterProducts(category) {
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            document.getElementById('btn-' + category).classList.add('active');
+
+            // Hide all sections
+            const sections = document.querySelectorAll('.product-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show selected section
+            if (category === 'all') {
+                document.getElementById('all-section').classList.add('active');
+            } else if (category === 'valves') {
+                document.getElementById('valves-section').classList.add('active');
+            } else if (category === 'ball') {
+                document.getElementById('ball-section').classList.add('active');
+            } else if (category === 'pipes') {
+                document.getElementById('pipes-section').classList.add('active');
+            }
+
+            // Scroll to products
+            window.scrollTo({ top: 450, behavior: 'smooth' });
+        }
+
+        // View Product - Redirect to cart.html
+        function viewProduct(name, subtitle, description, image, price, category) {
+            const params = new URLSearchParams({
+                name: name,
+                subtitle: subtitle,
+                description: description,
+                image: image,
+                price: price,
+                category: category
+            });
+            window.location.href = 'cart.html?' + params.toString();
+        }
+
+        function openEnquiryForm() {
+            const modal = document.getElementById('enquiryModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.querySelector('div > div').style.transform = 'scale(1)';
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEnquiryForm() {
+            const modal = document.getElementById('enquiryModal');
+            modal.querySelector('div > div').style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        function handleEnquirySubmit(event) {
+            event.preventDefault();
+            alert('Thank you! Your enquiry has been submitted. We will contact you within 24 hours.');
+            closeEnquiryForm();
+            document.getElementById('enquiry-form').reset();
+            return false;
+        }
+
+        document.getElementById('enquiryModal').onclick = function(e) {
+            if (e.target.id === 'enquiryModal') closeEnquiryForm();
+        };
+    </script>
+</body>
+</html>

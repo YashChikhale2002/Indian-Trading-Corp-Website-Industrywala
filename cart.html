@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Indian Traders Corp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a2463',
+                        secondary: '#d32f2f',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .product-image-large {
+            max-width: 100%;
+            height: 400px;
+            object-fit: contain;
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+        }
+
+        .spec-item {
+            display: flex;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: #0a2463;
+            min-width: 140px;
+        }
+
+        .spec-value {
+            color: #444;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Quantity Selector Styles */
+        .quantity-btn {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            user-select: none;
+        }
+
+        .quantity-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .quantity-btn:active {
+            transform: scale(0.95);
+        }
+
+        .quantity-display {
+            width: 80px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #0a2463;
+        }
+
+        /* Price Animation */
+        @keyframes priceUpdate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); color: #ff6b35; }
+            100% { transform: scale(1); }
+        }
+
+        .price-animate {
+            animation: priceUpdate 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
+    <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between py-2">
+            <!-- Logo - COMPACT & BIGGER -->
+            <div class="flex items-center space-x-2">
+                <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/ITC LOGO.png" 
+                     alt="Indian Traders Corp Logo" 
+                     class="h-16 w-auto object-contain">
+                <h1 class="text-2xl font-bold text-primary leading-tight">Indian Traders Corp</h1>
+            </div>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
+                <li><a href="about.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">About</a></li>
+                <li><a href="products.html" class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
+                <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 pt-2">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Home</a></li>
+                <li><a href="about.html" class="block py-3 text-primary font-bold hover:bg-gray-50 px-3 rounded-lg">About</a></li>
+                <li><a href="products.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Products</a></li>
+                <li><a href="contact.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="w-full bg-secondary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition shadow-md mt-2">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+    <!-- Breadcrumb -->
+    <section class="bg-white border-b py-3">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center text-sm text-gray-600">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <a href="product_details.html" class="hover:text-primary">Products</a>
+                <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span id="breadcrumb-category" class="text-primary font-semibold">Product Details</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Details Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <!-- Product Image -->
+                <div class="flex items-center justify-center">
+                    <img id="product-image" src="" alt="Product Image" class="product-image-large">
+                </div>
+
+                <!-- Product Information -->
+                <div>
+                    <div class="mb-2">
+                        <span id="product-category" class="inline-block bg-blue-50 text-primary px-3 py-1 rounded-lg text-sm font-semibold border border-primary"></span>
+                    </div>
+                    
+                    <h1 id="product-name" class="text-3xl md:text-4xl font-bold text-primary mb-3"></h1>
+                    
+                    <p id="product-subtitle" class="text-gray-600 mb-4 text-lg"></p>
+                    
+                    <!-- Dynamic Price Display -->
+                    <div class="mb-6">
+                        <p class="text-sm text-gray-600 mb-2">Total Price:</p>
+                        <div class="flex items-baseline gap-3">
+                            <p id="product-total-price" class="text-4xl font-bold text-secondary"></p>
+                            <p class="text-sm text-gray-500">
+                                (<span id="unit-price"></span> × <span id="current-quantity">1</span> pcs)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-primary p-4 mb-6 rounded-r-lg">
+                        <p class="text-sm text-gray-700">
+                            <svg class="w-5 h-5 inline mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                            </svg>
+                            <strong>Minimum Order Quantity:</strong> 1 Piece | <strong>Delivery:</strong> 3-5 Business Days
+                        </p>
+                    </div>
+
+                    <p id="product-description" class="text-gray-700 mb-6 text-base leading-relaxed"></p>
+
+                    <!-- Quantity Selector -->
+                    <div class="mb-6">
+                        <label class="block text-gray-700 font-bold mb-3 text-lg">Select Quantity:</label>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center border-2 border-primary rounded-lg overflow-hidden">
+                                <button onclick="decreaseQuantity()" class="quantity-btn bg-gray-100 hover:bg-primary hover:text-white border-r-2 border-primary">
+                                    −
+                                </button>
+                                <input type="number" id="quantity" value="1" min="1" readonly class="quantity-display border-0 outline-none">
+                                <button onclick="increaseQuantity()" class="quantity-btn bg-gray-100 hover:bg-primary hover:text-white border-l-2 border-primary">
+                                    +
+                                </button>
+                            </div>
+                            <span class="text-gray-600 text-sm">pieces</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-4 mb-8">
+                        <button onclick="buyNow()" class="flex-1 bg-secondary hover:bg-red-700 text-white font-bold py-4 rounded-lg transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                            </svg>
+                            Buy Now
+                        </button>
+                        <button onclick="openEnquiryForm()" class="flex-1 bg-primary hover:bg-blue-900 text-white font-bold py-4 rounded-lg transition transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                            </svg>
+                            Request Quote
+                        </button>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <svg class="w-8 h-8 mx-auto mb-2 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <p class="text-xs font-semibold">IBR Certified</p>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <svg class="w-8 h-8 mx-auto mb-2 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                                <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <p class="text-xs font-semibold">Quality Assured</p>
+                        </div>
+                        <div class="text-center p-3 bg-gray-50 rounded-lg">
+                            <svg class="w-8 h-8 mx-auto mb-2 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path>
+                                <path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1v-5a1 1 0 00-.293-.707l-2-2A1 1 0 0015 7h-1z"></path>
+                            </svg>
+                            <p class="text-xs font-semibold">Fast Delivery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Specifications (keeping same as before) -->
+            <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- Specifications -->
+                <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+                    <h3 class="text-2xl font-bold text-primary mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Technical Specifications
+                    </h3>
+                    <div class="space-y-1">
+                        <div class="spec-item">
+                            <span class="spec-label">Material:</span>
+                            <span class="spec-value">Cast Steel / Stainless Steel</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Pressure Rating:</span>
+                            <span class="spec-value">150# / 300# / 600#</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Size Range:</span>
+                            <span class="spec-value">1/2" to 24"</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Connection:</span>
+                            <span class="spec-value">Flanged / Threaded / Socket Weld</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Standards:</span>
+                            <span class="spec-value">IBR / ASME / API</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Testing:</span>
+                            <span class="spec-value">Hydro Test / Pneumatic Test</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Temperature:</span>
+                            <span class="spec-value">-20°C to 450°C</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Operation:</span>
+                            <span class="spec-value">Manual / Actuated</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features & Applications -->
+                <div>
+                    <!-- Key Features -->
+                    <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6 mb-6">
+                        <h3 class="text-2xl font-bold text-primary mb-4 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Key Features
+                        </h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">IBR Certified & Approved for boiler applications</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">High-Temperature Resistance up to 450°C</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Corrosion Resistant Materials for long service life</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Leak-Proof Design with robust sealing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 mr-2 mt-0.5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700">Easy Maintenance and Service</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Applications -->
+                    <div class="bg-white rounded-xl shadow-md border border-gray-200 p-6">
+                        <h3 class="text-2xl font-bold text-primary mb-4 flex items-center">
+                            <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                            Applications
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center p-2 bg-blue-50 rounded-lg">
+                                <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700">Boiler Systems</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-blue-50 rounded-lg">
+                                <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700">Steam Lines</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-blue-50 rounded-lg">
+                                <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700">Chemical Processing</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-blue-50 rounded-lg">
+                                <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700">Oil & Gas</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-blue-50 rounded-lg">
+                                <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700">Power Plants</span>
+                            </div>
+                            <div class="flex items-center p-2 bg-blue-50 rounded-lg">
+                                <svg class="w-5 h-5 mr-2 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-sm font-semibold text-gray-700">Petrochemical</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enquiry Form Modal -->
+    <div id="enquiryModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+            <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-5 rounded-t-2xl sticky top-0 z-10">
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h3 class="text-xl font-bold">Request a Quote</h3>
+                        <p class="text-blue-100 text-xs mt-1">Get competitive pricing for your needs</p>
+                    </div>
+                    <button onclick="closeEnquiryForm()" class="text-white hover:text-gray-200 transition p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <form id="enquiry-form" class="p-6" onsubmit="return handleEnquirySubmit(event)">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Full Name *</label>
+                        <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your name">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Email Address *</label>
+                        <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="your@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Phone Number *</label>
+                        <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="+91 XXXXX XXXXX">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Company Name</label>
+                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Your company name">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Product Name</label>
+                        <input type="text" id="enquiry-product-name" readonly class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Quantity Required</label>
+                        <input type="text" id="enquiry-quantity" readonly class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Total Amount</label>
+                        <input type="text" id="enquiry-total-price" readonly class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 text-sm font-bold text-secondary">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Preferred Size</label>
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                            <option value="">Select size</option>
+                            <option value="1/2">1/2"</option>
+                            <option value="3/4">3/4"</option>
+                            <option value="1">1"</option>
+                            <option value="2">2"</option>
+                            <option value="3">3"</option>
+                            <option value="4">4"</option>
+                            <option value="6">6"</option>
+                            <option value="8">8"</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Requirements / Message *</label>
+                        <textarea required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Please describe your requirements..."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition transform hover:scale-105 shadow-lg mt-4">
+                    Submit Quote Request
+                </button>
+                <p class="text-xs text-gray-500 text-center mt-3">We'll respond to your quote request within 24 hours</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t-4 border-secondary">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">ITC</span>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-bold text-lg">Indian Traders Corp</h3>
+                            <p class="text-xs text-secondary font-semibold">Since 1969</p>
+                        </div>
+                    </div>
+                    <p class="text-sm mb-4">Authorized dealers for industrial valves, pipes, and fittings in Central India.</p>
+                    <div class="text-sm font-semibold text-yellow-400">GST: 27AABFG1298F1ZH</div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-secondary transition">About Us</a></li>
+                        <li><a href="product_details.html" class="hover:text-secondary transition">Products</a></li>
+                        <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Products</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-secondary transition">Industrial Valves</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Pipes & Fittings</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Flanges</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-lg">Contact</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            <span>Opposite Daga Hospital, Gandhibagh, Nagpur, Maharashtra</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span>info@indiantraderscorp.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                            <span>+91 712 234 5678</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm">
+                <p class="mb-2">&copy; 2026 Indian Traders Corp. All rights reserved.</p>
+                <p class="text-gray-500">Designed with excellence for industrial solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Global Variables
+        let basePrice = 0;
+        let unitPriceValue = 0;
+
+        // Get URL Parameters and Load Product Data
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            const productName = urlParams.get('name');
+            const productSubtitle = urlParams.get('subtitle');
+            const productDescription = urlParams.get('description');
+            const productImage = urlParams.get('image');
+            const productPrice = urlParams.get('price');
+            const productCategory = urlParams.get('category');
+
+            // Update Page Content
+            if (productName) {
+                document.getElementById('product-name').textContent = productName;
+                document.title = productName + ' - Indian Traders Corp';
+            }
+            
+            if (productSubtitle) {
+                document.getElementById('product-subtitle').textContent = productSubtitle;
+            }
+            
+            if (productDescription) {
+                document.getElementById('product-description').textContent = productDescription;
+            }
+            
+            if (productImage) {
+                document.getElementById('product-image').src = productImage;
+                document.getElementById('product-image').alt = productName;
+            }
+            
+            if (productPrice) {
+                // Extract numeric value from price (e.g., "₹2,500 - ₹5,000" -> 2500)
+                const priceMatch = productPrice.match(/[\d,]+/);
+                if (priceMatch) {
+                    basePrice = parseInt(priceMatch[0].replace(/,/g, ''));
+                    unitPriceValue = basePrice;
+                }
+                
+                document.getElementById('unit-price').textContent = '₹' + formatPrice(unitPriceValue);
+                updateTotalPrice();
+            }
+            
+            if (productCategory) {
+                document.getElementById('product-category').textContent = productCategory;
+                document.getElementById('breadcrumb-category').textContent = productCategory;
+            }
+
+            // Set product name in enquiry form
+            document.getElementById('enquiry-product-name').value = productName;
+            updateEnquiryQuantity();
+        };
+
+        function formatPrice(price) {
+            return price.toLocaleString('en-IN');
+        }
+
+        function updateTotalPrice() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const totalPrice = unitPriceValue * quantity;
+            
+            const priceElement = document.getElementById('product-total-price');
+            priceElement.textContent = '₹' + formatPrice(totalPrice);
+            
+            // Add animation
+            priceElement.classList.add('price-animate');
+            setTimeout(() => {
+                priceElement.classList.remove('price-animate');
+            }, 300);
+            
+            // Update current quantity display
+            document.getElementById('current-quantity').textContent = quantity;
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Quantity Controls
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+            updateTotalPrice();
+            updateEnquiryQuantity();
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+                updateTotalPrice();
+                updateEnquiryQuantity();
+            }
+        }
+
+        function updateEnquiryQuantity() {
+            const quantity = document.getElementById('quantity').value;
+            document.getElementById('enquiry-quantity').value = quantity + ' pieces';
+            
+            // Update total price in enquiry form
+            const totalPrice = unitPriceValue * parseInt(quantity);
+            document.getElementById('enquiry-total-price').value = '₹' + formatPrice(totalPrice);
+        }
+
+        // Buy Now Function
+        function buyNow() {
+            const productName = document.getElementById('product-name').textContent;
+            const quantity = document.getElementById('quantity').value;
+            const totalPrice = document.getElementById('product-total-price').textContent;
+            
+            alert(`🛒 ORDER SUMMARY\n\nProduct: ${productName}\nQuantity: ${quantity} pieces\nTotal Price: ${totalPrice}\n\n✅ Proceeding to checkout...\n\nOur team will contact you shortly to confirm your order!`);
+        }
+
+        function openEnquiryForm() {
+            updateEnquiryQuantity();
+            const modal = document.getElementById('enquiryModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.querySelector('div > div').style.transform = 'scale(1)';
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEnquiryForm() {
+            const modal = document.getElementById('enquiryModal');
+            modal.querySelector('div > div').style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        function handleEnquirySubmit(event) {
+            event.preventDefault();
+            const totalPrice = document.getElementById('enquiry-total-price').value;
+            alert(`✅ Thank you! Your quote request has been submitted.\n\nTotal Amount: ${totalPrice}\n\nWe will contact you within 24 hours with competitive pricing.`);
+            closeEnquiryForm();
+            document.getElementById('enquiry-form').reset();
+            // Reset the product name and quantity
+            const productName = document.getElementById('product-name').textContent;
+            document.getElementById('enquiry-product-name').value = productName;
+            updateEnquiryQuantity();
+            return false;
+        }
+
+        document.getElementById('enquiryModal').onclick = function(e) {
+            if (e.target.id === 'enquiryModal') closeEnquiryForm();
+        };
+    </script>
+</body>
+</html>

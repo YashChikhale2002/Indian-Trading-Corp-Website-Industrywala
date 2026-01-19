@@ -164,3 +164,4 @@ function handleSwipe() {
         prevSlide();
     }
 }
+

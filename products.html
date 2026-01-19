@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Gupta Machinery Stores | Industrial Valves & Pipe Fittings</title>
+    <title>Products - Indian Traders Corp | Industrial Valves & Pipe Fittings</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -58,6 +58,8 @@
             align-items: center;
             justify-content: center;
             border-bottom: 1px solid #e5e5e5;
+            overflow: hidden;
+            cursor: pointer;
         }
 
         .product-image {
@@ -65,13 +67,15 @@
             height: 180px;
             object-fit: contain;
             transition: transform 0.4s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .product-card:hover .product-image {
-            transform: scale(1.08);
+            transform: scale(1.15);
         }
 
-        /* Simple Badge */
+        /* Badge Animation on Hover */
         .product-badge {
             position: absolute;
             top: 1rem;
@@ -84,6 +88,13 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .product-card:hover .product-badge {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
         }
 
         /* Card Content */
@@ -100,6 +111,7 @@
             color: #0a2463;
             margin-bottom: 0.5rem;
             line-height: 1.4;
+            cursor: pointer;
         }
 
         .product-category {
@@ -109,14 +121,35 @@
             font-weight: 500;
         }
 
-        /* Professional Buttons */
+        /* Two Buttons Layout */
         .card-actions {
             display: flex;
             gap: 0.75rem;
             margin-top: auto;
         }
 
-        .btn {
+        .btn-details {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            border: 2px solid #d32f2f;
+            background: white;
+            color: #d32f2f;
+        }
+
+        .btn-details:hover {
+            background: #d32f2f;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-enquiry {
             flex: 1;
             padding: 0.75rem 1rem;
             border-radius: 8px;
@@ -126,28 +159,14 @@
             transition: all 0.2s ease;
             text-align: center;
             border: none;
-        }
-
-        .btn-primary {
             background: #d32f2f;
             color: white;
         }
 
-        .btn-primary:hover {
+        .btn-enquiry:hover {
             background: #b71c1c;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #0a2463;
-            border: 2px solid #0a2463;
-        }
-
-        .btn-secondary:hover {
-            background: #0a2463;
-            color: white;
         }
 
         /* Section Styling */
@@ -167,10 +186,10 @@
 
         /* Category Filter */
         .filter-btn {
-            padding: 0.625rem 1.5rem;
+            padding: 0.75rem 1.75rem;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.2s ease;
             background: white;
@@ -190,97 +209,176 @@
             border-color: #0a2463;
         }
 
-        /* Header */
-        .header {
-            background: white;
-            border-bottom: 3px solid #d32f2f;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, #0a2463 0%, #1e3a8a 100%);
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .section-title {
                 font-size: 1.75rem;
             }
-            
-            .card-actions {
-                flex-direction: column;
-            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
+<header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
+    <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between py-2">
+            <!-- Logo - COMPACT & BIGGER -->
+            <div class="flex items-center space-x-2">
+                <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/ITC LOGO.png" 
+                     alt="Indian Traders Corp Logo" 
+                     class="h-16 w-auto object-contain">
+                <h1 class="text-2xl font-bold text-primary leading-tight">Indian Traders Corp</h1>
+            </div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container mx-auto px-4">
-            <nav class="flex items-center justify-between py-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-900 rounded-xl flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-2xl">ITC</span>
-                    </div>
-                    <div>
-                        <h1 class="text-2xl font-bold text-primary">Indian Tradres Corp</h1>
-                        <p class="text-xs text-secondary font-semibold tracking-wide">ESTABLISHED 1969</p>
-                    </div>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
+                <li><a href="about.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">About</a></li>
+                <li><a href="products.html" class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
+                <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 pt-2">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Home</a></li>
+                <li><a href="about.html" class="block py-3 text-primary font-bold hover:bg-gray-50 px-3 rounded-lg">About</a></li>
+                <li><a href="products.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 pb-1 rounded-lg">Products</a></li>
+                <li><a href="contact.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="w-full bg-secondary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition shadow-md mt-2">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- Quote Form Modal - COMPACT NO SCROLL VERSION -->
+<div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div id="quoteModalContent" class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+        
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-5 rounded-t-2xl sticky top-0 z-10">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-bold">Request a Quote</h3>
+                    <p class="text-blue-100 text-xs mt-1">Get competitive pricing for your needs</p>
                 </div>
-                
-                <ul class="hidden md:flex space-x-8 items-center">
-                    <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
-                    <li><a href="about.html" class="text-gray-700 font-semibold hover:text-primary transition">About</a></li>
-                    <li><a href="products.html" class="text-primary font-bold border-b-2 border-secondary pb-1">Products</a></li>
-                    <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
-                    <li><button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2.5 rounded-xl transition transform hover:scale-105 shadow-lg">Get Quote</button></li>
-                </ul>
-                
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                <button onclick="closeQuoteForm()" class="text-white hover:text-gray-200 transition p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-            </nav>
-            
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="block py-2 text-gray-700">Home</a></li>
-                    <li><a href="about.html" class="block py-2 text-gray-700">About</a></li>
-                    <li><a href="products.html" class="block py-2 text-primary font-bold">Products</a></li>
-                    <li><a href="contact.html" class="block py-2 text-gray-700">Contact</a></li>
-                </ul>
             </div>
         </div>
-    </header>
+
+        <!-- Compact Form in Grid -->
+        <form id="quote-form" class="p-6" onsubmit="return handleFormSubmit(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Full Name -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Full Name *</label>
+                    <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your name">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Email Address *</label>
+                    <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="your@email.com">
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Phone Number *</label>
+                    <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="+91 XXXXX XXXXX">
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Company Name</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Your company name">
+                </div>
+
+                <!-- Product Category -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Product Category *</label>
+                    <select required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                        <option value="">Select a category</option>
+                        <option value="gate-valves">Gate Valves</option>
+                        <option value="globe-valves">Globe Valves</option>
+                        <option value="ball-valves">Ball Valves</option>
+                        <option value="non-return-valves">Non Return Valves</option>
+                        <option value="butterfly-valves">Butterfly Valves</option>
+                        <option value="pipes-fittings">Pipes & Fittings</option>
+                        <option value="flanges">Flanges</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Quantity -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Quantity Required</label>
+                    <input type="text" placeholder="e.g., 50 units" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                </div>
+
+                <!-- Message - Full Width -->
+                <div class="md:col-span-2">
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Requirements / Message *</label>
+                    <textarea required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Please describe your requirements..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition transform hover:scale-105 shadow-lg mt-4">
+                Submit Quote Request
+            </button>
+
+            <p class="text-xs text-gray-500 text-center mt-3">We'll respond to your quote request within 24 hours</p>
+        </form>
+    </div>
+</div>
 
     <!-- Hero Section -->
-    <section class="hero text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-black mb-3">Our Products</h1>
-            <p class="text-lg text-blue-100 max-w-2xl mx-auto">Premium industrial valves, pipes, and fittings for all your requirements</p>
+    <section class="relative w-full overflow-hidden" style="height: 60vh; min-height: 300px;">
+        <div class="absolute inset-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel6.jpg" 
+                 alt="Industrial Products" 
+                 style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; max-width: 100%;">
         </div>
     </section>
 
     <!-- Filter Section -->
-    <section class="bg-white border-b border-gray-200 py-6 sticky top-[89px] z-50 shadow-sm">
+    <section class="bg-white border-b border-gray-200 py-8 sticky top-[89px] z-40 shadow-sm">
         <div class="container mx-auto px-4">
-            <div class="flex flex-wrap gap-3 justify-center">
-                <button onclick="filterProducts('all')" class="filter-btn active">All Products</button>
-                <button onclick="filterProducts('valves')" class="filter-btn">Valves</button>
-                <button onclick="filterProducts('pipes')" class="filter-btn">Pipes & Fittings</button>
-                <button onclick="filterProducts('accessories')" class="filter-btn">Accessories</button>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <button onclick="scrollToSection('all')" class="filter-btn active" data-category="all">All Products</button>
+                <button onclick="scrollToSection('valves')" class="filter-btn" data-category="valves">Valves</button>
+                <button onclick="scrollToSection('pipes')" class="filter-btn" data-category="pipes">Pipes & Fittings</button>
+                <button onclick="scrollToSection('accessories')" class="filter-btn" data-category="accessories">Accessories</button>
             </div>
         </div>
     </section>
 
-    <!-- Products Section - Valves -->
-    <section class="py-16 bg-white">
+    <!-- Valves Section -->
+    <section id="valves-section" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="section-title">Industrial Valves</h2>
@@ -290,157 +388,157 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
                 <!-- Gate Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">Popular</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Gate Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Gate Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Gate Valve</h3>
                         <p class="product-category">Cast Iron, Carbon Steel</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('gate-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Globe Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">ISO</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Globe Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Globe Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Globe Valve</h3>
                         <p class="product-category">ASTM, IBR Grade</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('globe-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Ball Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">Featured</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Ball-Valve.png" alt="Ball Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Ball Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Ball Valve</h3>
                         <p class="product-category">2-Way, 3-Way Available</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('ball-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Butterfly Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">Premium</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Butterfly-Valve.png" alt="Butterfly Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Butterfly Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Butterfly Valve</h3>
                         <p class="product-category">Wafer, Lug, Flanged Type</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('butterfly-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Non Return Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">Quality</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Non-return-Valve-1.png" alt="Non Return Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Non Return Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Non Return Valve</h3>
                         <p class="product-category">Check Valve, Swing Type</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('nrv')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Safety Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">IBR</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Safety-Valves.png" alt="Safety Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Safety Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Safety Valve</h3>
                         <p class="product-category">Pressure Relief, IBR Approved</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('safety-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Plug Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Plug-Valve.png" alt="Plug Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Plug Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Plug Valve</h3>
                         <p class="product-category">Lubricated, Non-Lubricated</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('plug-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Diaphragm Valve -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Diaphagram-valves.jpg" alt="Diaphragm Valve" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Diaphragm Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Diaphragm Valve</h3>
                         <p class="product-category">Weir Type, Straight Through</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('diaphragm-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- PRV -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/PRV.png" alt="PRV" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Pressure Reducing Valve</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Pressure Reducing Valve</h3>
                         <p class="product-category">Direct Acting, Pilot Type</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('prv')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Air Valves -->
-                <div class="product-card valves">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Air-alves.png" alt="Air Valves" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Air Valves</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Air Valves</h3>
                         <p class="product-category">Single, Double, Triple Orifice</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('air-valve')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
@@ -449,8 +547,8 @@
         </div>
     </section>
 
-    <!-- Products Section - Pipes & Fittings -->
-    <section class="py-16 bg-gray-50">
+    <!-- Pipes & Fittings Section -->
+    <section id="pipes-section" class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="section-title">Pipes & Fittings</h2>
@@ -460,125 +558,125 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
                 <!-- MS Pipes -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">Industrial</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/MS-pipes-Fittings.png" alt="MS Pipes" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">MS Pipes & Fittings</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">MS Pipes & Fittings</h3>
                         <p class="product-category">Mild Steel, ERW, Seamless</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('ms-pipes')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- SS Pipes -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">Premium</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/SS-Pipes-Fittings.png" alt="SS Pipes" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">SS Pipes & Fittings</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">SS Pipes & Fittings</h3>
                         <p class="product-category">SS304, SS316, SS321</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('ss-pipes')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- GI Pipes -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">ISI Mark</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/GI-pipes-Fittings.png" alt="GI Pipes" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">GI Pipes & Fittings</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">GI Pipes & Fittings</h3>
                         <p class="product-category">Galvanized Iron, ISI Certified</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('gi-pipes')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- HDPE Pipes -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/HDPE-pipes-and-fittings.png" alt="HDPE Pipes" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">HDPE Pipes</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">HDPE Pipes</h3>
                         <p class="product-category">PE80, PE100, ISI Certified</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('hdpe-pipes')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Flanges -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Flanges.png" alt="Flanges" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Flanges</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Flanges</h3>
                         <p class="product-category">Slip-On, Weld Neck, Blind</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('flanges')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Brass Fittings -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Bras-Pipe-Fittings.png" alt="Brass Fittings" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Brass Fittings</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Brass Fittings</h3>
                         <p class="product-category">Elbow, Tee, Union, Nipple</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('brass-fittings')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Hydraulic Fittings -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Hydraulic-Pipes-Fittings.png" alt="Hydraulic Fittings" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Hydraulic Fittings</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Hydraulic Fittings</h3>
                         <p class="product-category">Hose, Adapters, Couplings</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('hydraulic-fittings')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Dairy Fittings -->
-                <div class="product-card pipes">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">Hygienic</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Dairy-Valves-Fittings.png" alt="Dairy Fittings" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Dairy Fittings</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Dairy Fittings</h3>
                         <p class="product-category">Food Grade, Stainless Steel</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('dairy-fittings')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
@@ -587,8 +685,8 @@
         </div>
     </section>
 
-    <!-- Products Section - Accessories -->
-    <section class="py-16 bg-white">
+    <!-- Accessories Section -->
+    <section id="accessories-section" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="section-title">Industrial Accessories</h2>
@@ -598,62 +696,62 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 
                 <!-- Strainers -->
-                <div class="product-card accessories">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Strainers.png" alt="Strainers" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Strainers</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Strainers</h3>
                         <p class="product-category">Y-Type, Basket, Duplex</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('strainers')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Pressure Gauges -->
-                <div class="product-card accessories">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Temprature-Pressure-Gaugaes.png" alt="Pressure Gauges" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Pressure Gauges</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Pressure Gauges</h3>
                         <p class="product-category">Analog, Digital, Diaphragm</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('gauges')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Boiler Mounting -->
-                <div class="product-card accessories">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <span class="product-badge">IBR</span>
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Boiler-Mounting.png" alt="Boiler Mounting" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Boiler Mounting</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Boiler Mounting</h3>
                         <p class="product-category">IBR Approved Components</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('boiler-mounting')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Fire Fighting -->
-                <div class="product-card accessories">
-                    <div class="card-image-wrapper">
+                <div class="product-card">
+                    <div class="card-image-wrapper" onclick="window.location.href='product_details.html'">
                         <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Fire-Fighting-Accsesories.png" alt="Fire Fighting" class="product-image">
                     </div>
                     <div class="card-content">
-                        <h3 class="product-title">Fire Fighting Accessories</h3>
+                        <h3 class="product-title" onclick="window.location.href='product_details.html'">Fire Fighting Accessories</h3>
                         <p class="product-category">Hydrant, Hose, Nozzles</p>
                         <div class="card-actions">
-                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
-                            <button onclick="viewDetails('fire-fighting')" class="btn btn-secondary">Details</button>
+                            <button onclick="window.location.href='product_details.html'" class="btn-details">View Details</button>
+                            <button onclick="openQuoteForm()" class="btn-enquiry">Enquiry Now</button>
                         </div>
                     </div>
                 </div>
@@ -663,16 +761,26 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="bg-gradient-to-r from-primary via-blue-900 to-blue-800 text-white py-16">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-black mb-4">Need a Custom Quote?</h2>
-            <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">Our expert team is ready to help you find the perfect solution for your industrial needs</p>
+    <section class="relative text-white py-20 overflow-hidden" style="min-height: 350px;">
+        <div class="absolute inset-0 z-0">
+            <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel2.jpg" 
+                 alt="Industrial Background" 
+                 style="width: 100%; height: 100%; object-fit: cover; object-position: center; filter: brightness(0.5);">
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" style="text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9), 1px 1px 4px rgba(0, 0, 0, 1);">
+                Need a Custom Quote?
+            </h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 1px 1px 3px rgba(0, 0, 0, 1);">
+                Our expert team is ready to help you find the perfect solution for your industrial needs
+            </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="tel:+917122345678" class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-3 rounded-lg transition transform hover:scale-105 shadow-xl">
-                    Call Now
+                    📞 Call Now
                 </a>
                 <button onclick="openQuoteForm()" class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-3 rounded-lg transition transform hover:scale-105 shadow-xl">
-                    Request Quote
+                    📋 Request Quote
                 </button>
             </div>
         </div>
@@ -685,10 +793,10 @@
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
                         <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">GM</span>
+                            <span class="text-white font-bold text-xl">ITC</span>
                         </div>
                         <div>
-                            <h3 class="text-white font-bold text-lg">Gupta Machinery</h3>
+                            <h3 class="text-white font-bold text-lg">Indian Traders Corp</h3>
                             <p class="text-xs text-secondary font-semibold">Since 1969</p>
                         </div>
                     </div>
@@ -730,7 +838,7 @@
                             <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
-                            <span>info@guptamachinery.com</span>
+                            <span>info@indiantraderscorp.com</span>
                         </li>
                         <li class="flex items-center">
                             <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -743,7 +851,7 @@
             </div>
             
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
-                <p class="mb-2">&copy; 2026 Gupta Machinery Stores. All rights reserved.</p>
+                <p class="mb-2">&copy; 2026 Indian Traders Corp. All rights reserved.</p>
                 <p class="text-gray-500">Designed with excellence for industrial solutions</p>
             </div>
         </div>
@@ -751,41 +859,83 @@
 
     <!-- JavaScript -->
     <script>
-        // Mobile Menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
 
-        // Filter Products
-        function filterProducts(category) {
-            const items = document.querySelectorAll('.product-card');
+        // Smooth Scroll to Section with Active Button
+        function scrollToSection(category) {
+            // Remove active class from all buttons
             const buttons = document.querySelectorAll('.filter-btn');
-            
             buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
             event.target.classList.add('active');
             
-            items.forEach(item => {
-                if (category === 'all') {
-                    item.style.display = 'flex';
-                } else if (item.classList.contains(category)) {
-                    item.style.display = 'flex';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            // Scroll to appropriate section
+            let targetSection;
+            if (category === 'all') {
+                targetSection = document.getElementById('valves-section');
+            } else if (category === 'valves') {
+                targetSection = document.getElementById('valves-section');
+            } else if (category === 'pipes') {
+                targetSection = document.getElementById('pipes-section');
+            } else if (category === 'accessories') {
+                targetSection = document.getElementById('accessories-section');
+            }
+            
+            if (targetSection) {
+                const headerOffset = 160;
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
-        // Open Quote Form
+        // Open quote form - CENTER MODAL
         function openQuoteForm() {
-            alert('Quote form will open here. Connect with your actual quote form.');
+            const modal = document.getElementById('quoteModal');
+            const content = document.getElementById('quoteModalContent');
+            modal.classList.remove('hidden');
+            setTimeout(function() {
+                content.style.transform = 'scale(1)';
+            }, 10);
+            document.body.style.overflow = 'hidden';
         }
 
-        // View Details
-        function viewDetails(product) {
-            window.location.href = `product-details.html?product=${product}`;
+        // Close quote form
+        function closeQuoteForm() {
+            const content = document.getElementById('quoteModalContent');
+            content.style.transform = 'scale(0.95)';
+            setTimeout(function() {
+                document.getElementById('quoteModal').classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = '';
         }
 
-        // Smooth scroll animation
+        // Handle form submit
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Thank you! Your quote request has been submitted. We will contact you within 24 hours.');
+            closeQuoteForm();
+            document.getElementById('quote-form').reset();
+            return false;
+        }
+
+        // Close on background click
+        document.getElementById('quoteModal').onclick = function(e) {
+            if (e.target.id === 'quoteModal') {
+                closeQuoteForm();
+            }
+        };
+
+        // Smooth scroll animation for product cards
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -802,6 +952,5 @@
             observer.observe(card);
         });
     </script>
-
 </body>
 </html>

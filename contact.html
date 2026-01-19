@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Gupta Machinery Stores</title>
+    <title>Contact Us - Indian Traders Corp</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
     <script>
         tailwind.config = {
             theme: {
@@ -21,56 +20,147 @@
     </script>
 </head>
 <body class="bg-gray-50">
-    <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
-        <div class="container mx-auto px-4">
-            <nav class="flex items-center justify-between py-4">
-                <div class="flex items-center space-x-3">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-2xl">ITC</span>
-                    </div>
-                    <div>
-                        <h1 class="text-2xl font-bold text-primary">Indian Tradres Corp</h1>
-                        <p class="text-xs text-secondary font-semibold tracking-wide">ESTABLISHED 1969</p>
-                    </div>
-                </div>
-                
-                <ul class="hidden md:flex space-x-8 items-center">
-                    <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
-                    <li><a href="about.html" class="text-gray-700 font-semibold hover:text-primary transition">About</a></li>
-                    <li><a href="products.html" class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
-                    <li><a href="contact.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">Contact</a></li>
-                    <li><button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">Get Quote</button></li>
-                </ul>
+   <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
+    <div class="container mx-auto px-4">
+        <nav class="flex items-center justify-between py-2">
+            <!-- Logo - COMPACT & BIGGER -->
+            <div class="flex items-center space-x-2">
+                <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/ITC LOGO.png" 
+                     alt="Indian Traders Corp Logo" 
+                     class="h-16 w-auto object-contain">
+                <h1 class="text-2xl font-bold text-primary leading-tight">Indian Traders Corp</h1>
+            </div>
 
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
-                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
+                <li><a href="about.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">About</a></li>
+                <li><a href="products.html" class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
+                <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 pt-2">
+            <ul class="space-y-2">
+                <li><a href="index.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Home</a></li>
+                <li><a href="about.html" class="block py-3 text-primary font-bold hover:bg-gray-50 px-3 rounded-lg">About</a></li>
+                <li><a href="products.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Products</a></li>
+                <li><a href="contact.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 pb-1 rounded-lg">Contact</a></li>
+                <li>
+                    <button onclick="openQuoteForm()" class="w-full bg-secondary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition shadow-md mt-2">
+                        Get Quote
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<!-- Quote Form Modal - CENTER MODAL -->
+<div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+    <div id="quoteModalContent" class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
+        
+        <!-- Header -->
+        <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-5 rounded-t-2xl sticky top-0 z-10">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-bold">Request a Quote</h3>
+                    <p class="text-blue-100 text-xs mt-1">Get competitive pricing for your needs</p>
+                </div>
+                <button onclick="closeQuoteForm()" class="text-white hover:text-gray-200 transition p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
-            </nav>
-
-            <div id="mobile-menu" class="hidden md:hidden pb-4">
-                <ul class="space-y-2">
-                    <li><a href="index.html" class="block py-2 text-gray-700">Home</a></li>
-                    <li><a href="about.html" class="block py-2 text-gray-700">About</a></li>
-                    <li><a href="products.html" class="block py-2 text-gray-700">Products</a></li>
-                    <li><a href="contact.html" class="block py-2 text-primary font-bold">Contact</a></li>
-                </ul>
             </div>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-primary via-blue-900 to-blue-800 text-white py-20">
-        <div class="container mx-auto px-4 text-center">
-            <div class="inline-block bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
-                CONTACT US
+        <!-- Compact Form in Grid -->
+        <form id="quote-form" class="p-6" onsubmit="return handleFormSubmit(event)">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Full Name -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Full Name *</label>
+                    <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your name">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Email Address *</label>
+                    <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="your@email.com">
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Phone Number *</label>
+                    <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="+91 XXXXX XXXXX">
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Company Name</label>
+                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Your company name">
+                </div>
+
+                <!-- Product Category -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Product Category *</label>
+                    <select required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                        <option value="">Select a category</option>
+                        <option value="gate-valves">Gate Valves</option>
+                        <option value="globe-valves">Globe Valves</option>
+                        <option value="ball-valves">Ball Valves</option>
+                        <option value="non-return-valves">Non Return Valves</option>
+                        <option value="butterfly-valves">Butterfly Valves</option>
+                        <option value="pipes-fittings">Pipes & Fittings</option>
+                        <option value="flanges">Flanges</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Quantity -->
+                <div>
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Quantity Required</label>
+                    <input type="text" placeholder="e.g., 50 units" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
+                </div>
+
+                <!-- Message - Full Width -->
+                <div class="md:col-span-2">
+                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Requirements / Message *</label>
+                    <textarea required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Please describe your requirements..."></textarea>
+                </div>
             </div>
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-            <p class="text-xl text-blue-100 max-w-2xl mx-auto">We're here to help with all your industrial supply needs</p>
-        </div>
-    </section>
+
+            <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition transform hover:scale-105 shadow-lg mt-4">
+                Submit Quote Request
+            </button>
+
+            <p class="text-xs text-gray-500 text-center mt-3">We'll respond to your quote request within 24 hours</p>
+        </form>
+    </div>
+</div>
+
+    <!-- Just Image - Inline CSS Only -->
+<section class="relative w-full overflow-hidden" style="height: 60vh; min-height: 300px;">
+    <div class="absolute inset-0">
+        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/crousel2.jpg" 
+             alt="Industrial Products" 
+             style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; max-width: 100%;">
+    </div>
+</section>
 
     <!-- Contact Information & Form -->
     <section class="py-20 bg-white">
@@ -121,7 +211,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-bold text-gray-800 mb-1">Email Us</h3>
-                                <p class="text-gray-600">info@guptamachinery.com<br>sales@guptamachinery.com</p>
+                                <p class="text-gray-600">info@indiantraderscorp.com<br>sales@indiantraderscorp.com</p>
                             </div>
                         </div>
 
@@ -264,7 +354,7 @@
                             <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                             </svg>
-                            <span>info@guptamachinery.com</span>
+                            <span>info@indiantraderscorp.com</span>
                         </li>
                         <li class="flex items-center">
                             <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -277,103 +367,69 @@
             </div>
 
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
-                <p class="mb-2">&copy; 2026 Gupta Machinery Stores. All rights reserved.</p>
+                <p class="mb-2">&copy; 2026 Indian Traders Corp. All rights reserved.</p>
                 <p class="text-gray-500">Monday - Saturday: 10:30 AM - 6:00 PM | Sunday: Closed</p>
             </div>
         </div>
     </footer>
 
-    <!-- Quote Form Modal -->
-    <div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity">
-        <div id="quoteModalContent" class="fixed right-0 top-0 h-full w-full md:w-[500px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto">
-            <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-6">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold">Request a Quote</h3>
-                        <p class="text-blue-100 text-sm mt-1">Get competitive pricing for your needs</p>
-                    </div>
-                    <button onclick="closeQuoteForm()" class="text-white hover:text-gray-200 transition">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <form id="quote-form" class="p-6 space-y-4">
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
-                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Email Address *</label>
-                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
-                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Company Name</label>
-                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Product Category *</label>
-                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                        <option value="">Select a category</option>
-                        <option value="gate-valves">Gate Valves</option>
-                        <option value="globe-valves">Globe Valves</option>
-                        <option value="ball-valves">Ball Valves</option>
-                        <option value="non-return-valves">Non Return Valves</option>
-                        <option value="butterfly-valves">Butterfly Valves</option>
-                        <option value="pipes-fittings">Pipes & Fittings</option>
-                        <option value="flanges">Flanges</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Quantity Required</label>
-                    <input type="text" placeholder="e.g., 50 units" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Requirements / Message *</label>
-                    <textarea required rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Please describe your requirements..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-4 rounded-lg transition transform hover:scale-105 shadow-lg">
-                    Submit Quote Request
-                </button>
-
-                <p class="text-xs text-gray-500 text-center">We'll respond to your quote request within 24 hours</p>
-            </form>
-        </div>
-    </div>
-
-    <script src="assets/js/main.js"></script>
     <script>
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+    }
 
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const messageDiv = document.getElementById('form-message');
-            messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 text-green-700 border-2 border-green-300';
-            messageDiv.textContent = 'Thank you for your message! We will get back to you soon.';
-            messageDiv.classList.remove('hidden');
-            this.reset();
-            
-            setTimeout(() => {
-                messageDiv.classList.add('hidden');
-            }, 5000);
-        });
-    </script>
+    // Open quote form - CENTER MODAL
+    function openQuoteForm() {
+        const modal = document.getElementById('quoteModal');
+        const content = document.getElementById('quoteModalContent');
+        modal.classList.remove('hidden');
+        setTimeout(function() {
+            content.style.transform = 'scale(1)';
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close quote form
+    function closeQuoteForm() {
+        const content = document.getElementById('quoteModalContent');
+        content.style.transform = 'scale(0.95)';
+        setTimeout(function() {
+            document.getElementById('quoteModal').classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+    }
+
+    // Handle form submit
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        alert('Thank you! Your quote request has been submitted. We will contact you within 24 hours.');
+        closeQuoteForm();
+        document.getElementById('quote-form').reset();
+        return false;
+    }
+
+    // Close on background click
+    document.getElementById('quoteModal').onclick = function(e) {
+        if (e.target.id === 'quoteModal') {
+            closeQuoteForm();
+        }
+    };
+
+    // Contact form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const messageDiv = document.getElementById('form-message');
+        messageDiv.className = 'mt-4 p-4 rounded-lg bg-green-100 text-green-700 border-2 border-green-300';
+        messageDiv.textContent = 'Thank you for your message! We will get back to you soon.';
+        messageDiv.classList.remove('hidden');
+        this.reset();
+        
+        setTimeout(() => {
+            messageDiv.classList.add('hidden');
+        }, 5000);
+    });
+</script>
 </body>
 </html>
