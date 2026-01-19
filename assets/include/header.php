@@ -1,9 +1,13 @@
+<?php
+// Get the current page name
+$current_page = basename($_SERVER['PHP_SELF']);
+?>
 <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
     <div class="container mx-auto px-4">
         <nav class="flex items-center justify-between py-2">
             <!-- Logo - COMPACT & BIGGER -->
             <div class="flex items-center space-x-2">
-                <img src="./assets/images/ITC LOGO.png" 
+                <img src="assets/images/ITC LOGO.png" 
                      alt="Indian Traders Corp Logo" 
                      class="h-16 w-auto object-contain">
                 <h1 class="text-2xl font-bold text-primary leading-tight">Indian Traders Corp</h1>
@@ -11,10 +15,26 @@
 
             <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-8 items-center">
-                <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
-                <li><a href="about.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">About</a></li>
-                <li><a href="products.html" class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
-                <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
+                <li>
+                    <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.php" class="<?php echo ($current_page == 'about.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="products.php" class="<?php echo ($current_page == 'products.php' || $current_page == 'product_details.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.php" class="<?php echo ($current_page == 'contact.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
+                        Contact
+                    </a>
+                </li>
                 <li>
                     <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">
                         Get Quote
@@ -33,10 +53,26 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 pt-2">
             <ul class="space-y-2">
-                <li><a href="index.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Home</a></li>
-                <li><a href="about.html" class="block py-3 text-primary font-bold hover:bg-gray-50 px-3 rounded-lg">About</a></li>
-                <li><a href="products.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Products</a></li>
-                <li><a href="contact.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Contact</a></li>
+                <li>
+                    <a href="index.php" class="block py-3 <?php echo ($current_page == 'index.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="about.php" class="block py-3 <?php echo ($current_page == 'about.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href="products.php" class="block py-3 <?php echo ($current_page == 'products.php' || $current_page == 'product_details.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.php" class="block py-3 <?php echo ($current_page == 'contact.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
+                        Contact
+                    </a>
+                </li>
                 <li>
                     <button onclick="openQuoteForm()" class="w-full bg-secondary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition shadow-md mt-2">
                         Get Quote

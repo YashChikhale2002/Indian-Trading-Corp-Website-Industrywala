@@ -20,55 +20,7 @@
     </script>
 </head>
 <body class="bg-gray-50">
-   <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
-    <div class="container mx-auto px-4">
-        <nav class="flex items-center justify-between py-2">
-            <!-- Logo - COMPACT & BIGGER -->
-            <div class="flex items-center space-x-2">
-                <img src="./assets/images/ITC LOGO.png" 
-                     alt="Indian Traders Corp Logo" 
-                     class="h-16 w-auto object-contain">
-                <h1 class="text-2xl font-bold text-primary leading-tight">Indian Traders Corp</h1>
-            </div>
-
-            <!-- Desktop Menu -->
-            <ul class="hidden md:flex space-x-8 items-center">
-                <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
-                <li><a href="about.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">About</a></li>
-                <li><a href="products.html" class="text-gray-700 font-semibold hover:text-primary transition">Products</a></li>
-                <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
-                <li>
-                    <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">
-                        Get Quote
-                    </button>
-                </li>
-            </ul>
-
-            <!-- Mobile Menu Button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </nav>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 pt-2">
-            <ul class="space-y-2">
-                <li><a href="index.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Home</a></li>
-                <li><a href="about.html" class="block py-3 text-primary font-bold hover:bg-gray-50 px-3 rounded-lg">About</a></li>
-                <li><a href="products.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 rounded-lg">Products</a></li>
-                <li><a href="contact.html" class="block py-3 text-gray-700 hover:bg-gray-50 px-3 pb-1 rounded-lg">Contact</a></li>
-                <li>
-                    <button onclick="openQuoteForm()" class="w-full bg-secondary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition shadow-md mt-2">
-                        Get Quote
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </div>
-</header>
-
+<?php include 'assets/include/header.php'; ?>
 <!-- Quote Form Modal - CENTER MODAL -->
 <div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
     <div id="quoteModalContent" class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
@@ -154,13 +106,57 @@
 </div>
 
     <!-- Just Image - Inline CSS Only -->
-<section class="relative w-full overflow-hidden" style="height: 60vh; min-height: 300px;">
-    <div class="absolute inset-0">
+<!-- Responsive Single Image Banner -->
+<section class="page-banner" style="width: 100%; position: relative; overflow: hidden; margin: 0; padding: 0; background: #e5e7eb;">
+    <div style="position: relative; width: 100%; height: 100%;">
         <img src="./assets/images/crousel2.jpg" 
-             alt="Industrial Products" 
-             style="width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; max-width: 100%;">
+             alt="Contact Indian Traders Corp" 
+             class="banner-image"
+             style="width: 100%; height: 100%; display: block;">
     </div>
 </section>
+
+<!-- Responsive Banner CSS -->
+<style>
+    /* Base mobile styles */
+    .page-banner {
+        height: 220px; /* Mobile default */
+    }
+
+    .banner-image {
+        object-fit: contain; /* Shows complete image on mobile */
+        object-position: center;
+    }
+
+    /* Tablet: 640px and above */
+    @media (min-width: 640px) {
+        .page-banner {
+            height: 320px;
+        }
+
+        .banner-image {
+            object-fit: cover; /* Fill space on tablet */
+        }
+    }
+
+    /* Desktop: 1024px and above */
+    @media (min-width: 1024px) {
+        .page-banner {
+            height: 450px;
+        }
+
+        .banner-image {
+            object-fit: cover; /* Fill space beautifully */
+        }
+    }
+
+    /* Large Desktop: 1440px and above */
+    @media (min-width: 1440px) {
+        .page-banner {
+            height: 550px;
+        }
+    }
+</style>
 
     <!-- Contact Information & Form -->
     <section class="py-20 bg-white">
@@ -302,76 +298,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-secondary">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">ITC</span>
-                        </div>
-                        <div>
-                            <h3 class="text-white font-bold text-lg">Indian Traders Corp</h3>
-                            <p class="text-xs text-secondary font-semibold">Since 1969</p>
-                        </div>
-                    </div>
-                    <p class="text-sm mb-4">Authorized dealers for industrial valves, pipes, and fittings in Central India.</p>
-                    <div class="text-sm font-semibold text-yellow-400">GST: 27AABFG1298F1ZH</div>
-                </div>
+<?php include 'assets/include/footer.php'; ?>
 
-                <div>
-                    <h4 class="text-white font-bold mb-4 text-lg">Quick Links</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
-                        <li><a href="about.html" class="hover:text-secondary transition">About Us</a></li>
-                        <li><a href="products.html" class="hover:text-secondary transition">Products</a></li>
-                        <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-4 text-lg">Products</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="products.html" class="hover:text-secondary transition">Industrial Valves</a></li>
-                        <li><a href="products.html" class="hover:text-secondary transition">Pipes & Fittings</a></li>
-                        <li><a href="products.html" class="hover:text-secondary transition">Ball Bearings</a></li>
-                        <li><a href="products.html" class="hover:text-secondary transition">Flanges</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-4 text-lg">Contact Us</h4>
-                    <ul class="space-y-3 text-sm">
-                        <li class="flex items-start">
-                            <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                            </svg>
-                            <span>Opposite Daga Hospital, Gandhibagh, Nagpur, Maharashtra</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                            </svg>
-                            <span>info@indiantraderscorp.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                            </svg>
-                            <span>+91 712 234 5678</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 pt-8 text-center text-sm">
-                <p class="mb-2">&copy; 2026 Indian Traders Corp. All rights reserved.</p>
-                <p class="text-gray-500">Monday - Saturday: 10:30 AM - 6:00 PM | Sunday: Closed</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
     // Toggle mobile menu

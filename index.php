@@ -41,84 +41,289 @@
 
 <body class="bg-gray-50">
 
+<!-- ============================================================ -->
+<!-- RESPONSIVE BANNER - PERFECT FOR ALL DEVICES                 -->
+<!-- Mobile: Shows complete image | Desktop: Fills beautifully   -->
+<!-- ============================================================ -->
+
 <?php include 'assets/include/header.php'; ?>
-<!-- Quote Form Modal -->
+
 <?php include 'assets/include/modal.php'; ?>
 
-<!-- Hero Section - Mobile Responsive -->
-<section class="relative w-full overflow-hidden" style="height: 50vh; min-height: 300px;">
-    <style>
-        @media (min-width: 640px) {
-            section:first-of-type {
-                height: 60vh !important;
-            }
-        }
-        @media (min-width: 1024px) {
-            section:first-of-type {
-                height: 70vh !important;
-            }
-        }
-    </style>
-    
-    <!-- Background Image Carousel Container -->
-    <div class="absolute inset-0">
+<!-- Responsive Banner Section -->
+<section class="banner-section" style="width: 100%; position: relative; overflow: hidden; margin: 0; padding: 0; background: #e5e7eb;">
+
+    <!-- Slides Container -->
+    <div style="position: relative; width: 100%; height: 100%;">
+
         <!-- Slide 1 -->
-        <div class="hero-bg-slide active absolute inset-0">
-            <img src="./assets/images/crousel1.jpg" 
-                 alt="Industrial Products" 
-                 class="w-full h-full object-cover">
+        <div class="banner-slide active" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 1s ease;">
+            <img src="assets/images/crousel1.jpg" alt="Industrial Products" class="banner-img">
         </div>
-        
+
         <!-- Slide 2 -->
-        <div class="hero-bg-slide absolute inset-0">
-            <img src="./assets/images/crousel2.jpg" 
-                 alt="Industrial Products" 
-                 class="w-full h-full object-cover">
+        <div class="banner-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease;">
+            <img src="assets/images/crousel2.jpg" alt="Industrial Products" class="banner-img">
         </div>
-        
+
         <!-- Slide 3 -->
-        <div class="hero-bg-slide absolute inset-0">
-            <img src="./assets/images/crousel3.jpg" 
-                 alt="Industrial Products" 
-                 class="w-full h-full object-cover">
+        <div class="banner-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease;">
+            <img src="assets/images/crousel3.jpg" alt="Industrial Products" class="banner-img">
         </div>
 
         <!-- Slide 4 -->
-        <div class="hero-bg-slide absolute inset-0">
-            <img src="./assets/images/crousel4.jpg" 
-                 alt="Industrial Products" 
-                 class="w-full h-full object-cover">
+        <div class="banner-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease;">
+            <img src="assets/images/crousel4.jpg" alt="Industrial Products" class="banner-img">
         </div>
 
         <!-- Slide 5 -->
-        <div class="hero-bg-slide absolute inset-0">
-            <img src="./assets/images/crousel5.jpg" 
-                 alt="Industrial Products" 
-                 class="w-full h-full object-cover">  
+        <div class="banner-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease;">
+            <img src="assets/images/crousel5.jpg" alt="Industrial Products" class="banner-img">
         </div>
-        <div class="hero-bg-slide absolute inset-0">
-            <img src="./assets/images/crousel6.jpg" 
-                 alt="Industrial Products" 
-                 class="w-full h-full object-cover">  
+
+        <!-- Slide 6 -->
+        <div class="banner-slide" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 1s ease;">
+            <img src="assets/images/crousel6.jpg" alt="Industrial Products" class="banner-img">
         </div>
     </div>
 
-    <!-- Previous Arrow - Mobile Responsive -->
-    <button onclick="prevSlide()" 
-            class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full transition-all duration-300 shadow-2xl hover:scale-110 group">
-        <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- Navigation Arrows -->
+    <button onclick="bannerPrev()" class="banner-arrow banner-arrow-left" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; border-radius: 50%; cursor: pointer; z-index: 10; transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+        <svg style="display: block;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path>
         </svg>
     </button>
 
-    <!-- Next Arrow - Mobile Responsive -->
-    <button onclick="nextSlide()" 
-            class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-20 bg-white/80 hover:bg-white text-gray-800 p-2 sm:p-3 rounded-full transition-all duration-300 shadow-2xl hover:scale-110 group">
-        <svg class="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button onclick="bannerNext()" class="banner-arrow banner-arrow-right" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.9); border: none; border-radius: 50%; cursor: pointer; z-index: 10; transition: all 0.3s; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+        <svg style="display: block;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
         </svg>
     </button>
+
+    <!-- Slide Indicators -->
+    <div class="banner-dots" style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10;">
+        <span class="banner-dot" onclick="bannerGoTo(0)" style="cursor: pointer; border-radius: 50%; background: white; transition: all 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 1;"></span>
+        <span class="banner-dot" onclick="bannerGoTo(1)" style="cursor: pointer; border-radius: 50%; background: white; transition: all 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0.5;"></span>
+        <span class="banner-dot" onclick="bannerGoTo(2)" style="cursor: pointer; border-radius: 50%; background: white; transition: all 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0.5;"></span>
+        <span class="banner-dot" onclick="bannerGoTo(3)" style="cursor: pointer; border-radius: 50%; background: white; transition: all 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0.5;"></span>
+        <span class="banner-dot" onclick="bannerGoTo(4)" style="cursor: pointer; border-radius: 50%; background: white; transition: all 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0.5;"></span>
+        <span class="banner-dot" onclick="bannerGoTo(5)" style="cursor: pointer; border-radius: 50%; background: white; transition: all 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0.5;"></span>
+        <span class="banner-dot" onclick="bannerGoTo(6)" style="cursor: pointer; border-radius: 50%; background: white; transition: all 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); opacity: 0.5;"></span>
+    </div>
 </section>
+
+<!-- ============================================================ -->
+<!-- RESPONSIVE BANNER CSS - ADAPTS TO ALL SCREEN SIZES          -->
+<!-- ============================================================ -->
+<style>
+    /* Base banner styles */
+    .banner-section {
+        height: 220px; /* Default mobile */
+    }
+
+    .banner-slide {
+        position: absolute !important;
+        width: 100% !important;
+        height: 100% !important;
+        opacity: 0 !important;
+        transition: opacity 1s ease-in-out !important;
+    }
+
+    .banner-slide.active {
+        opacity: 1 !important;
+        z-index: 1 !important;
+    }
+
+    /* Mobile: Show complete image with contain */
+    .banner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Shows complete image on mobile */
+        object-position: center;
+        display: block;
+    }
+
+    /* Arrow buttons - mobile size */
+    .banner-arrow {
+        width: 35px;
+        height: 35px;
+        padding: 8px;
+        color: #333;
+    }
+
+    .banner-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .banner-arrow:hover {
+        background: white !important;
+        transform: translateY(-50%) scale(1.1) !important;
+    }
+
+    /* Dots - mobile size */
+    .banner-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .banner-dot:hover {
+        opacity: 1 !important;
+        transform: scale(1.2);
+    }
+
+    /* ============================================ */
+    /* TABLET: 640px and above                     */
+    /* ============================================ */
+    @media (min-width: 640px) {
+        .banner-section {
+            height: 320px; /* Taller on tablet */
+        }
+
+        .banner-img {
+            object-fit: cover; /* Fill space on tablet */
+        }
+
+        .banner-arrow {
+            width: 45px;
+            height: 45px;
+            padding: 10px;
+        }
+
+        .banner-arrow svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .banner-arrow-left {
+            left: 15px;
+        }
+
+        .banner-arrow-right {
+            right: 15px;
+        }
+
+        .banner-dot {
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    /* ============================================ */
+    /* DESKTOP: 1024px and above                   */
+    /* ============================================ */
+    @media (min-width: 1024px) {
+        .banner-section {
+            height: 450px; /* Full height on desktop */
+        }
+
+        .banner-img {
+            object-fit: cover; /* Fill space beautifully */
+        }
+
+        .banner-arrow {
+            width: 50px;
+            height: 50px;
+            padding: 12px;
+        }
+
+        .banner-arrow svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .banner-arrow-left {
+            left: 20px;
+        }
+
+        .banner-arrow-right {
+            right: 20px;
+        }
+
+        .banner-dot {
+            width: 12px;
+            height: 12px;
+        }
+    }
+
+    /* ============================================ */
+    /* LARGE DESKTOP: 1440px and above             */
+    /* ============================================ */
+    @media (min-width: 1440px) {
+        .banner-section {
+            height: 550px; /* Even taller for large screens */
+        }
+    }
+</style>
+
+<!-- ============================================================ -->
+<!-- BANNER JAVASCRIPT - SELF-CONTAINED                          -->
+<!-- ============================================================ -->
+<script>
+(function() {
+    let bannerCurrentSlide = 0;
+    const bannerSlides = document.querySelectorAll('.banner-slide');
+    const bannerDots = document.querySelectorAll('.banner-dot');
+    let bannerAutoInterval;
+
+    function bannerShow(index) {
+        // Hide all slides
+        bannerSlides.forEach(slide => {
+            slide.classList.remove('active');
+            slide.style.opacity = '0';
+        });
+
+        // Reset all dots
+        bannerDots.forEach(dot => {
+            dot.style.opacity = '0.5';
+        });
+
+        // Update index
+        bannerCurrentSlide = index;
+        if (bannerCurrentSlide >= bannerSlides.length) bannerCurrentSlide = 0;
+        if (bannerCurrentSlide < 0) bannerCurrentSlide = bannerSlides.length - 1;
+
+        // Show current slide
+        bannerSlides[bannerCurrentSlide].classList.add('active');
+        bannerSlides[bannerCurrentSlide].style.opacity = '1';
+        bannerDots[bannerCurrentSlide].style.opacity = '1';
+    }
+
+    window.bannerNext = function() {
+        bannerShow(bannerCurrentSlide + 1);
+        bannerResetAuto();
+    };
+
+    window.bannerPrev = function() {
+        bannerShow(bannerCurrentSlide - 1);
+        bannerResetAuto();
+    };
+
+    window.bannerGoTo = function(index) {
+        bannerShow(index);
+        bannerResetAuto();
+    };
+
+    function bannerStartAuto() {
+        bannerAutoInterval = setInterval(() => {
+            bannerShow(bannerCurrentSlide + 1);
+        }, 5000);
+    }
+
+    function bannerResetAuto() {
+        clearInterval(bannerAutoInterval);
+        bannerStartAuto();
+    }
+
+    // Initialize
+    bannerShow(0);
+    bannerStartAuto();
+
+    console.log('✓ Responsive banner initialized - ' + bannerSlides.length + ' slides');
+})();
+</script>
+
+
 
 <!-- Certification Ribbon - Mobile Responsive -->
 <section class="bg-white border-y-2 border-gray-200 py-6 sm:py-8 overflow-hidden">
@@ -724,87 +929,8 @@
     </div>
 </section>
 
-<!-- Footer - Mobile Responsive -->
-<footer class="bg-gray-900 text-gray-300 py-8 sm:py-10 md:py-12 border-t-4 border-secondary">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
-            <div>
-                <div class="flex items-center space-x-2 mb-3 sm:mb-4">
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg sm:text-xl">ITC</span>
-                    </div>
-                    <div>
-                        <h3 class="text-white font-bold text-base sm:text-lg">Indian Traders Corp</h3>
-                        <p class="text-xs text-secondary font-semibold">Since 1969</p>
-                    </div>
-                </div>
-                <p class="text-xs sm:text-sm mb-3 sm:mb-4">Authorized dealers for industrial valves, pipes, and fittings in Central
-                    India.</p>
-                <div class="text-xs sm:text-sm font-semibold text-yellow-400">GST: 27AABFG1298F1ZH</div>
-            </div>
+<?php include 'assets/include/footer.php'; ?>
 
-            <div>
-                <h4 class="text-white font-bold mb-3 sm:mb-4 text-base sm:text-lg">Quick Links</h4>
-                <ul class="space-y-2 text-xs sm:text-sm">
-                    <li><a href="index.html" class="hover:text-secondary transition">Home</a></li>
-                    <li><a href="about.html" class="hover:text-secondary transition">About Us</a></li>
-                    <li><a href="products.html" class="hover:text-secondary transition">Products</a></li>
-                    <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold mb-3 sm:mb-4 text-base sm:text-lg">Products</h4>
-                <ul class="space-y-2 text-xs sm:text-sm">
-                    <li><a href="products.html" class="hover:text-secondary transition">Industrial Valves</a></li>
-                    <li><a href="products.html" class="hover:text-secondary transition">Pipes & Fittings</a></li>
-                    <li><a href="products.html" class="hover:text-secondary transition">Ball Bearings</a></li>
-                    <li><a href="products.html" class="hover:text-secondary transition">Flanges</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h4 class="text-white font-bold mb-3 sm:mb-4 text-base sm:text-lg">Contact Us</h4>
-                <ul class="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                    <li class="flex items-start">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 mt-0.5 flex-shrink-0 text-secondary" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
-                            </path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        <span>Opposite Daga Hospital, Gandhibagh, Nagpur, Maharashtra</span>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-secondary" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                        <span>info@guptamachinery.com</span>
-                    </li>
-                    <li class="flex items-center">
-                        <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-secondary" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
-                            </path>
-                        </svg>
-                        <span>+91 712 234 5678</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="border-t border-gray-800 pt-6 sm:pt-8 text-center text-xs sm:text-sm">
-            <p class="mb-2">&copy; 2026 Indian Traders Corp. All rights reserved.</p>
-            <p class="text-gray-500">Monday - Saturday: 10:30 AM - 6:00 PM | Sunday: Closed</p>
-        </div>
-    </div>
-</footer>
 
 <!-- Quote Form Modal - Mobile Responsive -->
 <div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity">
