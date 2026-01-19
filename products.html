@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - Gupta Machinery Stores</title>
+    <title>Products - Gupta Machinery Stores | Industrial Valves & Pipe Fittings</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
     <script>
         tailwind.config = {
             theme: {
@@ -13,24 +12,223 @@
                     colors: {
                         primary: '#0a2463',
                         secondary: '#d32f2f',
-                        accent: '#ff6b35',
                     }
                 }
             }
         }
     </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* Professional Product Card */
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e5e5;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(10, 36, 99, 0.15);
+            border-color: #0a2463;
+        }
+
+        /* Clean Image Container */
+        .card-image-wrapper {
+            position: relative;
+            padding: 2.5rem 1.5rem;
+            background: #fafafa;
+            min-height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: 180px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+
+        /* Simple Badge */
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #d32f2f;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 1.75rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0a2463;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .product-category {
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Professional Buttons */
+        .card-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            border: none;
+        }
+
+        .btn-primary {
+            background: #d32f2f;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #b71c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #0a2463;
+            border: 2px solid #0a2463;
+        }
+
+        .btn-secondary:hover {
+            background: #0a2463;
+            color: white;
+        }
+
+        /* Section Styling */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #0a2463;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.125rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Category Filter */
+        .filter-btn {
+            padding: 0.625rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: white;
+            color: #666;
+            border: 2px solid #e5e5e5;
+        }
+
+        .filter-btn:hover {
+            background: #f5f5f5;
+            border-color: #0a2463;
+            color: #0a2463;
+        }
+
+        .filter-btn.active {
+            background: #0a2463;
+            color: white;
+            border-color: #0a2463;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            border-bottom: 3px solid #d32f2f;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0a2463 0%, #1e3a8a 100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .card-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
+<body>
+
     <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
+    <header class="header">
         <div class="container mx-auto px-4">
             <nav class="flex items-center justify-between py-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-900 rounded-lg flex items-center justify-center shadow-lg">
-                        <span class="text-white font-bold text-2xl">GM</span>
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-blue-900 rounded-xl flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-2xl">ITC</span>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold text-primary">Gupta Machinery Stores</h1>
+                        <h1 class="text-2xl font-bold text-primary">Indian Tradres Corp</h1>
                         <p class="text-xs text-secondary font-semibold tracking-wide">ESTABLISHED 1969</p>
                     </div>
                 </div>
@@ -38,18 +236,18 @@
                 <ul class="hidden md:flex space-x-8 items-center">
                     <li><a href="index.html" class="text-gray-700 font-semibold hover:text-primary transition">Home</a></li>
                     <li><a href="about.html" class="text-gray-700 font-semibold hover:text-primary transition">About</a></li>
-                    <li><a href="products.html" class="text-primary font-bold border-b-2 border-secondary pb-1 hover:text-secondary transition">Products</a></li>
+                    <li><a href="products.html" class="text-primary font-bold border-b-2 border-secondary pb-1">Products</a></li>
                     <li><a href="contact.html" class="text-gray-700 font-semibold hover:text-primary transition">Contact</a></li>
-                    <li><button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">Get Quote</button></li>
+                    <li><button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2.5 rounded-xl transition transform hover:scale-105 shadow-lg">Get Quote</button></li>
                 </ul>
-
+                
                 <button id="mobile-menu-btn" class="md:hidden text-gray-700">
                     <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
             </nav>
-
+            
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <ul class="space-y-2">
                     <li><a href="index.html" class="block py-2 text-gray-700">Home</a></li>
@@ -62,494 +260,426 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-primary via-blue-900 to-blue-800 text-white py-20">
+    <section class="hero text-white py-16">
         <div class="container mx-auto px-4 text-center">
-            <div class="inline-block bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold mb-4">
-                OUR PRODUCTS
-            </div>
-            <h2 class="text-4xl md:text-5xl font-bold mb-4">Complete Industrial Solutions</h2>
-            <p class="text-xl text-blue-100 max-w-2xl mx-auto">High-quality valves, pipes, and fittings for all industrial applications</p>
+            <h1 class="text-4xl md:text-5xl font-black mb-3">Our Products</h1>
+            <p class="text-lg text-blue-100 max-w-2xl mx-auto">Premium industrial valves, pipes, and fittings for all your requirements</p>
         </div>
     </section>
 
-    <!-- Product Categories Navigation -->
-    <section class="bg-white border-b-2 border-gray-200 sticky top-[88px] z-40 shadow-md">
+    <!-- Filter Section -->
+    <section class="bg-white border-b border-gray-200 py-6 sticky top-[89px] z-50 shadow-sm">
         <div class="container mx-auto px-4">
-            <div class="flex overflow-x-auto space-x-6 py-4 no-scrollbar">
-                <a href="#valves" class="flex-shrink-0 px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-blue-900 transition">Industrial Valves</a>
-                <a href="#pipes" class="flex-shrink-0 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition">Pipes & Fittings</a>
-                <a href="#accessories" class="flex-shrink-0 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition">Accessories</a>
-                <a href="#standards" class="flex-shrink-0 px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition">Standards</a>
+            <div class="flex flex-wrap gap-3 justify-center">
+                <button onclick="filterProducts('all')" class="filter-btn active">All Products</button>
+                <button onclick="filterProducts('valves')" class="filter-btn">Valves</button>
+                <button onclick="filterProducts('pipes')" class="filter-btn">Pipes & Fittings</button>
+                <button onclick="filterProducts('accessories')" class="filter-btn">Accessories</button>
             </div>
         </div>
     </section>
 
-    <!-- Industrial Valves Section -->
-    <section id="valves" class="py-20 bg-white">
+    <!-- Products Section - Valves -->
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-blue-100 text-primary px-4 py-1 rounded-full text-sm font-bold mb-4">
-                    CATEGORY
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Industrial Valves</h2>
-                <p class="text-gray-600 text-lg max-w-3xl mx-auto">Premium quality valves designed for industrial applications with superior performance and durability</p>
+            <div class="text-center mb-12">
+                <h2 class="section-title">Industrial Valves</h2>
+                <p class="section-subtitle">High-quality valves for diverse industrial applications</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
                 <!-- Gate Valve -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group hover:border-primary">
-                    <div class="relative bg-gradient-to-br from-blue-600 to-blue-800 h-64 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <div class="text-white text-center z-10">
-                            <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-7xl font-bold opacity-90">GV</div>
-                        </div>
-                        <div class="absolute top-4 right-4 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                            POPULAR
-                        </div>
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">Popular</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Gate-Valve-1.png" alt="Gate Valve" class="product-image">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition">Gate Valve</h3>
-                        <p class="text-gray-600 mb-4">Premium quality gate valves for reliable shut-off applications in industrial pipelines. Available in various sizes and pressure ratings.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                ASTM Grade Material
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Multiple Size Options
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                High Pressure Ratings
-                            </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Gate Valve</h3>
+                        <p class="product-category">Cast Iron, Carbon Steel</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('gate-valve')" class="btn btn-secondary">Details</button>
                         </div>
-                        <button onclick="openQuoteForm()" class="w-full bg-primary hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
                     </div>
                 </div>
 
                 <!-- Globe Valve -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group hover:border-primary">
-                    <div class="relative bg-gradient-to-br from-yellow-500 to-orange-600 h-64 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <div class="text-white text-center z-10">
-                            <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                                </svg>
-                            </div>
-                            <div class="text-7xl font-bold opacity-90">GL</div>
-                        </div>
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">ISO</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Globe-Valve-1.png" alt="Globe Valve" class="product-image">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition">Globe Valve</h3>
-                        <p class="text-gray-600 mb-4">Precision globe valves for accurate flow control and throttling applications in industrial systems with superior performance.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Flow Control Precision
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Durable Construction
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                IBR Certified
-                            </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Globe Valve</h3>
+                        <p class="product-category">ASTM, IBR Grade</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('globe-valve')" class="btn btn-secondary">Details</button>
                         </div>
-                        <button onclick="openQuoteForm()" class="w-full bg-primary hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
                     </div>
                 </div>
 
                 <!-- Ball Valve -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group hover:border-primary">
-                    <div class="relative bg-gradient-to-br from-purple-600 to-purple-800 h-64 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <div class="text-white text-center z-10">
-                            <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                                </svg>
-                            </div>
-                            <div class="text-7xl font-bold opacity-90">BV</div>
-                        </div>
-                        <div class="absolute top-4 right-4 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full">
-                            NEW STOCK
-                        </div>
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">Featured</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Ball-Valve.png" alt="Ball Valve" class="product-image">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition">Ball Valve</h3>
-                        <p class="text-gray-600 mb-4">Quick shutoff ball valves with excellent sealing performance and minimal pressure drop characteristics. Brass & SS options available.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Quick Operation
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Brass & SS Options
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Leak-Proof Design
-                            </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Ball Valve</h3>
+                        <p class="product-category">2-Way, 3-Way Available</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('ball-valve')" class="btn btn-secondary">Details</button>
                         </div>
-                        <button onclick="openQuoteForm()" class="w-full bg-primary hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
-                    </div>
-                </div>
-
-                <!-- Non Return Valve -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group hover:border-primary">
-                    <div class="relative bg-gradient-to-br from-green-600 to-teal-700 h-64 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <div class="text-white text-center z-10">
-                            <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-7xl font-bold opacity-90">NR</div>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition">Non Return Valve</h3>
-                        <p class="text-gray-600 mb-4">Check valves preventing backflow in piping systems with automatic operation. Reliable and low maintenance solution.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Prevents Backflow
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Automatic Operation
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Low Maintenance
-                            </div>
-                        </div>
-                        <button onclick="openQuoteForm()" class="w-full bg-primary hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
                     </div>
                 </div>
 
                 <!-- Butterfly Valve -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group hover:border-primary">
-                    <div class="relative bg-gradient-to-br from-red-600 to-red-800 h-64 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <div class="text-white text-center z-10">
-                            <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-                                </svg>
-                            </div>
-                            <div class="text-7xl font-bold opacity-90">BF</div>
-                        </div>
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">Premium</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Butterfly-Valve.png" alt="Butterfly Valve" class="product-image">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition">Butterfly Valve</h3>
-                        <p class="text-gray-600 mb-4">Compact butterfly valves offering excellent flow control with minimal space requirements. Cost-effective and efficient.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Space-Saving Design
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Cost-Effective
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Easy Installation
-                            </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Butterfly Valve</h3>
+                        <p class="product-category">Wafer, Lug, Flanged Type</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('butterfly-valve')" class="btn btn-secondary">Details</button>
                         </div>
-                        <button onclick="openQuoteForm()" class="w-full bg-primary hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
                     </div>
                 </div>
 
-                <!-- Brass Valves -->
-                <div class="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300 group hover:border-primary">
-                    <div class="relative bg-gradient-to-br from-orange-500 to-orange-700 h-64 flex items-center justify-center overflow-hidden">
-                        <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                        <div class="text-white text-center z-10">
-                            <div class="w-24 h-24 mx-auto mb-4 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                                <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-7xl font-bold opacity-90">BR</div>
-                        </div>
+                <!-- Non Return Valve -->
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">Quality</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Non-return-Valve-1.png" alt="Non Return Valve" class="product-image">
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-2xl font-bold text-gray-800 mb-3 group-hover:text-primary transition">Brass Valves</h3>
-                        <p class="text-gray-600 mb-4">Corrosion-resistant brass valves ideal for water and gas applications. Chrome plated options available for enhanced durability.</p>
-                        <div class="space-y-2 mb-6">
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Corrosion Resistant
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Long Lasting
-                            </div>
-                            <div class="flex items-center text-sm text-gray-700">
-                                <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Chrome Plated Options
-                            </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Non Return Valve</h3>
+                        <p class="product-category">Check Valve, Swing Type</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('nrv')" class="btn btn-secondary">Details</button>
                         </div>
-                        <button onclick="openQuoteForm()" class="w-full bg-primary hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
                     </div>
                 </div>
+
+                <!-- Safety Valve -->
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Safety-Valves.png" alt="Safety Valve" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Safety Valve</h3>
+                        <p class="product-category">Pressure Relief, IBR Approved</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('safety-valve')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plug Valve -->
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Plug-Valve.png" alt="Plug Valve" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Plug Valve</h3>
+                        <p class="product-category">Lubricated, Non-Lubricated</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('plug-valve')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diaphragm Valve -->
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Diaphagram-valves.jpg" alt="Diaphragm Valve" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Diaphragm Valve</h3>
+                        <p class="product-category">Weir Type, Straight Through</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('diaphragm-valve')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRV -->
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/PRV.png" alt="PRV" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Pressure Reducing Valve</h3>
+                        <p class="product-category">Direct Acting, Pilot Type</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('prv')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Air Valves -->
+                <div class="product-card valves">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Air-alves.png" alt="Air Valves" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Air Valves</h3>
+                        <p class="product-category">Single, Double, Triple Orifice</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('air-valve')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Pipes & Fittings Section -->
-    <section id="pipes" class="py-20 bg-gray-50">
+    <!-- Products Section - Pipes & Fittings -->
+    <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-red-100 text-secondary px-4 py-1 rounded-full text-sm font-bold mb-4">
-                    CATEGORY
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Pipes & Fittings</h2>
-                <p class="text-gray-600 text-lg">Complete piping solutions for industrial and commercial needs</p>
+            <div class="text-center mb-12">
+                <h2 class="section-title">Pipes & Fittings</h2>
+                <p class="section-subtitle">Complete range of industrial pipes and fittings</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition border-2 border-transparent hover:border-primary">
-                    <div class="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- MS Pipes -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">Industrial</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/MS-pipes-Fittings.png" alt="MS Pipes" class="product-image">
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">MS & GI Pipes</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Mild steel and galvanized iron pipes in various sizes and specifications</p>
-                    <button onclick="openQuoteForm()" class="text-secondary font-semibold hover:underline">Get Quote →</button>
+                    <div class="card-content">
+                        <h3 class="product-title">MS Pipes & Fittings</h3>
+                        <p class="product-category">Mild Steel, ERW, Seamless</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('ms-pipes')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition border-2 border-transparent hover:border-primary">
-                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
+                <!-- SS Pipes -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">Premium</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/SS-Pipes-Fittings.png" alt="SS Pipes" class="product-image">
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Steel Tubes</h3>
-                    <p class="text-gray-600 mb-4 text-sm">High-quality steel tubes for structural and industrial applications</p>
-                    <button onclick="openQuoteForm()" class="text-secondary font-semibold hover:underline">Get Quote →</button>
+                    <div class="card-content">
+                        <h3 class="product-title">SS Pipes & Fittings</h3>
+                        <p class="product-category">SS304, SS316, SS321</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('ss-pipes')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition border-2 border-transparent hover:border-primary">
-                    <div class="w-20 h-20 bg-gradient-to-br from-green-600 to-teal-700 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                <!-- GI Pipes -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">ISI Mark</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/GI-pipes-Fittings.png" alt="GI Pipes" class="product-image">
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">PVC Pipes</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Durable PVC piping for water supply and drainage systems</p>
-                    <button onclick="openQuoteForm()" class="text-secondary font-semibold hover:underline">Get Quote →</button>
+                    <div class="card-content">
+                        <h3 class="product-title">GI Pipes & Fittings</h3>
+                        <p class="product-category">Galvanized Iron, ISI Certified</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('gi-pipes')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition border-2 border-transparent hover:border-primary">
-                    <div class="w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-800 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                        </svg>
+                <!-- HDPE Pipes -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/HDPE-pipes-and-fittings.png" alt="HDPE Pipes" class="product-image">
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Pipe Fittings</h3>
-                    <p class="text-gray-600 mb-4 text-sm">Comprehensive range of elbows, tees, couplings, and reducers</p>
-                    <button onclick="openQuoteForm()" class="text-secondary font-semibold hover:underline">Get Quote →</button>
+                    <div class="card-content">
+                        <h3 class="product-title">HDPE Pipes</h3>
+                        <p class="product-category">PE80, PE100, ISI Certified</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('hdpe-pipes')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Flanges -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Flanges.png" alt="Flanges" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Flanges</h3>
+                        <p class="product-category">Slip-On, Weld Neck, Blind</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('flanges')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brass Fittings -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Bras-Pipe-Fittings.png" alt="Brass Fittings" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Brass Fittings</h3>
+                        <p class="product-category">Elbow, Tee, Union, Nipple</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('brass-fittings')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hydraulic Fittings -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Hydraulic-Pipes-Fittings.png" alt="Hydraulic Fittings" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Hydraulic Fittings</h3>
+                        <p class="product-category">Hose, Adapters, Couplings</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('hydraulic-fittings')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dairy Fittings -->
+                <div class="product-card pipes">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">Hygienic</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Dairy-Valves-Fittings.png" alt="Dairy Fittings" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Dairy Fittings</h3>
+                        <p class="product-category">Food Grade, Stainless Steel</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('dairy-fittings')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Accessories Section -->
-    <section id="accessories" class="py-20 bg-white">
+    <!-- Products Section - Accessories -->
+    <section class="py-16 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-blue-100 text-primary px-4 py-1 rounded-full text-sm font-bold mb-4">
-                    CATEGORY
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Accessories & Components</h2>
-                <p class="text-gray-600 text-lg">Supporting products for complete industrial solutions</p>
+            <div class="text-center mb-12">
+                <h2 class="section-title">Industrial Accessories</h2>
+                <p class="section-subtitle">Essential accessories for complete industrial solutions</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <div class="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 rounded-2xl p-8 hover:shadow-xl transition">
-                    <div class="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-                        </svg>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                
+                <!-- Strainers -->
+                <div class="product-card accessories">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Strainers.png" alt="Strainers" class="product-image">
                     </div>
-                    <h3 class="text-2xl font-bold text-primary mb-4">Flanges & Fittings</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Forged Flanges</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Butt Weld Fittings</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Socket Weld Fittings</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Threaded Fittings</span>
-                        </li>
-                    </ul>
-                    <button onclick="openQuoteForm()" class="mt-6 w-full bg-primary hover:bg-blue-900 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
+                    <div class="card-content">
+                        <h3 class="product-title">Strainers</h3>
+                        <p class="product-category">Y-Type, Basket, Duplex</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('strainers')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-red-50 to-white border-2 border-red-200 rounded-2xl p-8 hover:shadow-xl transition">
-                    <div class="w-16 h-16 bg-secondary rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-                        </svg>
+                <!-- Pressure Gauges -->
+                <div class="product-card accessories">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Temprature-Pressure-Gaugaes.png" alt="Pressure Gauges" class="product-image">
                     </div>
-                    <h3 class="text-2xl font-bold text-secondary mb-4">Bearings & Hardware</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3 mt-2"></span>
-                            <span>Ball Bearings</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3 mt-2"></span>
-                            <span>Nuts & Bolts</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3 mt-2"></span>
-                            <span>Fasteners</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-primary rounded-full mr-3 mt-2"></span>
-                            <span>Hardware Accessories</span>
-                        </li>
-                    </ul>
-                    <button onclick="openQuoteForm()" class="mt-6 w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
+                    <div class="card-content">
+                        <h3 class="product-title">Pressure Gauges</h3>
+                        <p class="product-category">Analog, Digital, Diaphragm</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('gauges')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-green-50 to-white border-2 border-green-200 rounded-2xl p-8 hover:shadow-xl transition">
-                    <div class="w-16 h-16 bg-green-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
+                <!-- Boiler Mounting -->
+                <div class="product-card accessories">
+                    <div class="card-image-wrapper">
+                        <span class="product-badge">IBR</span>
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Boiler-Mounting.png" alt="Boiler Mounting" class="product-image">
                     </div>
-                    <h3 class="text-2xl font-bold text-green-700 mb-4">Boiler Components</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Boiler Mountings</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Pressure Gauges</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Safety Valves</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="w-2 h-2 bg-secondary rounded-full mr-3 mt-2"></span>
-                            <span>Flow Meters</span>
-                        </li>
-                    </ul>
-                    <button onclick="openQuoteForm()" class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg transition">Request Quote</button>
+                    <div class="card-content">
+                        <h3 class="product-title">Boiler Mounting</h3>
+                        <p class="product-category">IBR Approved Components</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('boiler-mounting')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Fire Fighting -->
+                <div class="product-card accessories">
+                    <div class="card-image-wrapper">
+                        <img src="/Indian-Trading-Corp-Website-Industrywala/assets/images/Fire-Fighting-Accsesories.png" alt="Fire Fighting" class="product-image">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="product-title">Fire Fighting Accessories</h3>
+                        <p class="product-category">Hydrant, Hose, Nozzles</p>
+                        <div class="card-actions">
+                            <button onclick="openQuoteForm()" class="btn btn-primary">Get Quote</button>
+                            <button onclick="viewDetails('fire-fighting')" class="btn btn-secondary">Details</button>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Material Standards Section -->
-    <section id="standards" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <div class="inline-block bg-red-100 text-secondary px-4 py-1 rounded-full text-sm font-bold mb-4">
-                    QUALITY STANDARDS
-                </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-primary mb-4">Material Standards</h2>
-                <p class="text-gray-600 text-lg">We deal in international grade materials meeting global standards</p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition border-2 border-transparent hover:border-primary">
-                    <div class="text-4xl font-bold text-primary mb-2">ASTM</div>
-                    <p class="text-gray-600 text-sm font-semibold">American Standards</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition border-2 border-transparent hover:border-secondary">
-                    <div class="text-4xl font-bold text-secondary mb-2">IBR</div>
-                    <p class="text-gray-600 text-sm font-semibold">Indian Boiler Regulations</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition border-2 border-transparent hover:border-green-600">
-                    <div class="text-4xl font-bold text-green-600 mb-2">JIS</div>
-                    <p class="text-gray-600 text-sm font-semibold">Japanese Standards</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-lg text-center hover:shadow-xl transition border-2 border-transparent hover:border-purple-600">
-                    <div class="text-4xl font-bold text-purple-600 mb-2">DIN</div>
-                    <p class="text-gray-600 text-sm font-semibold">German Standards</p>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-r from-primary to-blue-900 rounded-2xl p-12 text-white text-center max-w-4xl mx-auto">
-                <h3 class="text-3xl font-bold mb-4">Need Help Choosing the Right Product?</h3>
-                <p class="text-blue-100 mb-8 text-lg">Our technical experts are here to guide you through product selection based on your specific requirements</p>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                        Request Quote
-                    </button>
-                    <a href="contact.html" class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-4 rounded-lg transition transform hover:scale-105 shadow-xl">
-                        Contact Us
-                    </a>
-                </div>
+    <!-- CTA Section -->
+    <section class="bg-gradient-to-r from-primary via-blue-900 to-blue-800 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-black mb-4">Need a Custom Quote?</h2>
+            <p class="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">Our expert team is ready to help you find the perfect solution for your industrial needs</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="tel:+917122345678" class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-3 rounded-lg transition transform hover:scale-105 shadow-xl">
+                    Call Now
+                </a>
+                <button onclick="openQuoteForm()" class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-3 rounded-lg transition transform hover:scale-105 shadow-xl">
+                    Request Quote
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-300 py-12 border-t-4 border-secondary">
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t-4 border-secondary">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
@@ -565,7 +695,7 @@
                     <p class="text-sm mb-4">Authorized dealers for industrial valves, pipes, and fittings in Central India.</p>
                     <div class="text-sm font-semibold text-yellow-400">GST: 27AABFG1298F1ZH</div>
                 </div>
-
+                
                 <div>
                     <h4 class="text-white font-bold mb-4 text-lg">Quick Links</h4>
                     <ul class="space-y-2 text-sm">
@@ -575,19 +705,19 @@
                         <li><a href="contact.html" class="hover:text-secondary transition">Contact</a></li>
                     </ul>
                 </div>
-
+                
                 <div>
                     <h4 class="text-white font-bold mb-4 text-lg">Products</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#valves" class="hover:text-secondary transition">Industrial Valves</a></li>
-                        <li><a href="#pipes" class="hover:text-secondary transition">Pipes & Fittings</a></li>
-                        <li><a href="#accessories" class="hover:text-secondary transition">Accessories</a></li>
-                        <li><a href="#standards" class="hover:text-secondary transition">Standards</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Industrial Valves</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Pipes & Fittings</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Flanges</a></li>
+                        <li><a href="#" class="hover:text-secondary transition">Accessories</a></li>
                     </ul>
                 </div>
-
+                
                 <div>
-                    <h4 class="text-white font-bold mb-4 text-lg">Contact Us</h4>
+                    <h4 class="text-white font-bold mb-4 text-lg">Contact</h4>
                     <ul class="space-y-3 text-sm">
                         <li class="flex items-start">
                             <svg class="w-5 h-5 mr-2 mt-0.5 flex-shrink-0 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -611,92 +741,67 @@
                     </ul>
                 </div>
             </div>
-
+            
             <div class="border-t border-gray-800 pt-8 text-center text-sm">
                 <p class="mb-2">&copy; 2026 Gupta Machinery Stores. All rights reserved.</p>
-                <p class="text-gray-500">Monday - Saturday: 10:30 AM - 6:00 PM | Sunday: Closed</p>
+                <p class="text-gray-500">Designed with excellence for industrial solutions</p>
             </div>
         </div>
     </footer>
 
-    <!-- Quote Form Modal -->
-    <div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity">
-        <div id="quoteModalContent" class="fixed right-0 top-0 h-full w-full md:w-[500px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto">
-            <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-6">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="text-2xl font-bold">Request a Quote</h3>
-                        <p class="text-blue-100 text-sm mt-1">Get competitive pricing for your needs</p>
-                    </div>
-                    <button onclick="closeQuoteForm()" class="text-white hover:text-gray-200 transition">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <form id="quote-form" class="p-6 space-y-4">
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Full Name *</label>
-                    <input type="text" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Email Address *</label>
-                    <input type="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Phone Number *</label>
-                    <input type="tel" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Company Name</label>
-                    <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Product Category *</label>
-                    <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                        <option value="">Select a category</option>
-                        <option value="gate-valves">Gate Valves</option>
-                        <option value="globe-valves">Globe Valves</option>
-                        <option value="ball-valves">Ball Valves</option>
-                        <option value="non-return-valves">Non Return Valves</option>
-                        <option value="butterfly-valves">Butterfly Valves</option>
-                        <option value="pipes-fittings">Pipes & Fittings</option>
-                        <option value="flanges">Flanges</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Quantity Required</label>
-                    <input type="text" placeholder="e.g., 50 units" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-2">Requirements / Message *</label>
-                    <textarea required rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Please describe your requirements..."></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-4 rounded-lg transition transform hover:scale-105 shadow-lg">
-                    Submit Quote Request
-                </button>
-
-                <p class="text-xs text-gray-500 text-center">We'll respond to your quote request within 24 hours</p>
-            </form>
-        </div>
-    </div>
-
-    <script src="assets/js/main.js"></script>
+    <!-- JavaScript -->
     <script>
+        // Mobile Menu
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Filter Products
+        function filterProducts(category) {
+            const items = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.style.display = 'flex';
+                } else if (item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Open Quote Form
+        function openQuoteForm() {
+            alert('Quote form will open here. Connect with your actual quote form.');
+        }
+
+        // View Details
+        function viewDetails(product) {
+            window.location.href = `product-details.html?product=${product}`;
+        }
+
+        // Smooth scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.5s ease';
+            observer.observe(card);
         });
     </script>
+
 </body>
 </html>
