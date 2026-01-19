@@ -241,7 +241,7 @@ img {
 /* Very Light Overlay - Image Clear */
 
 section.bg-gradient-to-r.from-primary {
-    background-image: url('/Indian-Trading-Corp-Website-IndustryWala/assets/images/crousel8.jpg') !important;
+    background-image: url('./assets/images/crousel8.jpg') !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
