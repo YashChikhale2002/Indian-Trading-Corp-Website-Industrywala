@@ -289,5 +289,156 @@ section.bg-gradient-to-r.from-primary > .absolute.inset-0.opacity-10 {
     100% { background-position: 0% 50%; }
 }
 
+ @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-scroll {
+            animation: scroll 30s linear infinite;
+        }
+
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        .product-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .product-card:hover::before {
+            left: 100%;
+        }
+
+        .diagonal-split {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        /* Hero Carousel Styles */
+        .hero-slide {
+            display: none;
+        }
+
+        .hero-slide.active {
+            display: block;
+        }
+
+        /* Add these styles to your existing <style> tag */
+        .parallax-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* UPDATED: Remove blur and increase visibility */
+        .bg-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .bg-slide.active {
+            opacity: 0.95;
+            /* CHANGED from 0.15 to 0.95 for clear visibility */
+        }
+
+        .parallax-layer {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .product-card-animated {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .product-card-animated:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .product-card-animated:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .product-card-animated:nth-child(3) {
+            animation-delay: 1s;
+        }
+
 
 

@@ -165,3 +165,140 @@ function handleSwipe() {
     }
 }
 
+
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0a2463',
+                        secondary: '#d32f2f',
+                        accent: '#ff6b35',
+                    }
+                }
+            }
+        }
+    
+
+
+      // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Hero Carousel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+
+        function changeSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('w-8');
+            dots[currentSlide].classList.add('bg-white/50');
+            dots[currentSlide].classList.remove('bg-white');
+
+            currentSlide = index;
+
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('w-8');
+            dots[currentSlide].classList.add('bg-white');
+            dots[currentSlide].classList.remove('bg-white/50');
+        }
+
+
+        // Background carousel auto-rotation for product section
+        let currentBgSlide = 0;
+        const bgSlides = document.querySelectorAll('.bg-slide');
+        const totalBgSlides = bgSlides.length;
+
+        function rotateBgSlide() {
+            bgSlides[currentBgSlide].classList.remove('active');
+            currentBgSlide = (currentBgSlide + 1) % totalBgSlides;
+            bgSlides[currentBgSlide].classList.add('active');
+        }
+
+        // Auto-rotate every 5 seconds
+        setInterval(rotateBgSlide, 5000);
+
+        // Parallax scroll effect
+        const productSection = document.getElementById('productSection');
+        const parallaxLayer = document.querySelector('.parallax-layer');
+        const parallaxBg = document.querySelector('.parallax-bg');
+
+        if (productSection && parallaxLayer && parallaxBg) {
+            window.addEventListener('scroll', function () {
+                const scrolled = window.pageYOffset;
+                const sectionTop = productSection.offsetTop;
+                const sectionHeight = productSection.offsetHeight;
+
+                // Only apply parallax when section is in view
+                if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+                    const offset = (scrolled - sectionTop) * 0.5;
+                    parallaxBg.style.transform = `translateY(${offset}px)`;
+                    parallaxLayer.style.transform = `translateY(${-offset * 0.3}px)`;
+                }
+            });
+
+            // Mouse move parallax effect
+            productSection.addEventListener('mousemove', function (e) {
+                const rect = productSection.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const moveX = (x - rect.width / 2) * 0.01;
+                const moveY = (y - rect.height / 2) * 0.01;
+
+                parallaxBg.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.1)`;
+            });
+
+            productSection.addEventListener('mouseleave', function () {
+                parallaxBg.style.transform = 'translate(0, 0) scale(1)';
+            });
+        }
+   // Toggle mobile menu
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+        } else {
+            menu.classList.add('hidden');
+        }
+    }
+
+    // Open quote form
+    function openQuoteForm() {
+        const modal = document.getElementById('quoteModal');
+        const content = document.getElementById('quoteModalContent');
+        modal.classList.remove('hidden');
+        setTimeout(function() {
+            content.style.transform = 'translateX(0)';
+        }, 10);
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close quote form
+    function closeQuoteForm() {
+        const content = document.getElementById('quoteModalContent');
+        content.style.transform = 'translateX(100%)';
+        setTimeout(function() {
+            document.getElementById('quoteModal').classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+    }
+
+    // Handle form submit
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        alert('Thank you! Your quote request has been submitted. We will contact you within 24 hours.');
+        closeQuoteForm();
+        document.getElementById('quote-form').reset();
+        return false;
+    }
+
+    // Close on background click
+    document.getElementById('quoteModal').onclick = function(e) {
+        if (e.target.id === 'quoteModal') {
+            closeQuoteForm();
+        }
+    };
