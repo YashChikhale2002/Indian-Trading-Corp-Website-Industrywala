@@ -347,7 +347,7 @@
 <?php include 'assets/include/footer.php'; ?>
 
 
-    <script>
+    <script> 
     // Toggle mobile menu
     function toggleMobileMenu() {
         const menu = document.getElementById('mobile-menu');
