@@ -362,18 +362,6 @@
     }
 </style>
 
-    <!-- Filter Section -->
-    <section class=" py-2 sticky top-[89px] z-40 ">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap gap-4 justify-center">
-                <button onclick="scrollToSection('all')" class="filter-btn active" data-category="all">All Products</button>
-                <button onclick="scrollToSection('valves')" class="filter-btn" data-category="valves">Valves</button>
-                <button onclick="scrollToSection('pipes')" class="filter-btn" data-category="pipes">Pipes & Fittings</button>
-                <button onclick="scrollToSection('accessories')" class="filter-btn" data-category="accessories">Accessories</button>
-            </div>
-        </div>
-    </section>
-
     <!-- Valves Section -->
     <section id="valves" class="py-16 bg-white">
         <div class="container mx-auto px-4">
