@@ -483,7 +483,7 @@
     </div>
 </section>
        
-<!-- Product Grid Section - Mobile Responsive -->
+<!-- Product Grid Section - Mobile Responsive with Navigation -->
 <section class="py-12 sm:py-16 md:py-20 bg-white">
     <div class="container mx-auto px-4">
         <div class="text-center mb-10 sm:mb-12 md:mb-16">
@@ -498,10 +498,11 @@
 
         <!-- Responsive Grid: 2 cols on mobile, 3 on small tablets, 5 on tablets, 10 on desktop -->
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-3 sm:gap-4 max-w-full mx-auto">
-            
-            <!-- Product items with responsive styling -->
+
+            <!-- Product items with responsive styling and click navigation -->
+
             <!-- 1. Gate Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('gate-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Gate-Valve-1.png" alt="Gate Valve" class="w-full h-full object-contain">
                 </div>
@@ -509,9 +510,9 @@
                     Gate Valve
                 </div>
             </div>
- 
+
             <!-- 2. Globe Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('globe-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Globe-Valve-1.png" alt="Globe Valve" class="w-full h-full object-contain">
                 </div>
@@ -521,7 +522,7 @@
             </div>
 
             <!-- 3. Non Return Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('non-return-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Non-return-Valve-1.png" alt="Non Return Valve" class="w-full h-full object-contain">
                 </div>
@@ -531,7 +532,7 @@
             </div>
 
             <!-- 4. Ball Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('ball-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Ball-Valve.png" alt="Ball Valve" class="w-full h-full object-contain">
                 </div>
@@ -541,7 +542,7 @@
             </div>
 
             <!-- 5. Butterfly Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('butterfly-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Butterfly-Valve.png" alt="Butterfly Valve" class="w-full h-full object-contain">
                 </div>
@@ -551,7 +552,7 @@
             </div>
 
             <!-- 6. Knife Edge Gate Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('knife-edge-gate-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/knife-Edge-gate-valve.png" alt="Knife Edge Gate Valve" class="w-full h-full object-contain">
                 </div>
@@ -559,9 +560,9 @@
                     Knife Edge Gate
                 </div>
             </div>
-             
+
             <!-- 7. Piston Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('piston-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/piston-valve.png" alt="Piston Valve" class="w-full h-full object-contain">
                 </div>
@@ -571,7 +572,7 @@
             </div>
 
             <!-- 8. Plug Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('plug-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Plug-Valve.png" alt="Plug Valve" class="w-full h-full object-contain">
                 </div>
@@ -581,7 +582,7 @@
             </div>
 
             <!-- 9. Diaphragm Valve -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('diaphragm-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Diaphagram-valves.jpg" alt="Diaphragm Valve" class="w-full h-full object-contain">
                 </div>
@@ -591,7 +592,7 @@
             </div>
 
             <!-- 10. Strainer -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('strainer')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Strainers.png" alt="Strainer" class="w-full h-full object-contain">
                 </div>
@@ -601,7 +602,7 @@
             </div>
 
             <!-- 11. Safety Valves -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('safety-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Safety-Valves.png" alt="Safety Valves" class="w-full h-full object-contain">
                 </div>
@@ -611,7 +612,7 @@
             </div>
 
             <!-- 12. PRV -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('prv')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/PRV.png" alt="PRV" class="w-full h-full object-contain">
                 </div>
@@ -621,7 +622,7 @@
             </div>
 
             <!-- 13. Air Valves -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('air-valve')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Air-alves.png" alt="Air Valves" class="w-full h-full object-contain">
                 </div>
@@ -631,7 +632,7 @@
             </div>
 
             <!-- 14. Flanges -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('flanges')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Flanges.png" alt="Flanges" class="w-full h-full object-contain">
                 </div>
@@ -641,7 +642,7 @@
             </div>
 
             <!-- 15. MS Pipes Fittings -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('ms-pipes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/MS-pipes-Fittings.png" alt="MS Pipes Fittings" class="w-full h-full object-contain">
                 </div>
@@ -651,7 +652,7 @@
             </div>
 
             <!-- 16. IBR Pipes Fittings -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('ibr-pipes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/IBR-Pipes-Fittings.png" alt="IBR Pipes Fittings" class="w-full h-full object-contain">
                 </div>
@@ -661,7 +662,7 @@
             </div>
 
             <!-- 17. GI Pipes Fittings -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('gi-pipes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/GI-pipes-Fittings.png" alt="GI Pipes Fittings" class="w-full h-full object-contain">
                 </div>
@@ -671,7 +672,7 @@
             </div>
 
             <!-- 18. SS Pipes Fittings -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('ss-pipes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/SS-Pipes-Fittings.png" alt="SS Pipes Fittings" class="w-full h-full object-contain">
                 </div>
@@ -681,7 +682,7 @@
             </div>
 
             <!-- 19. HDPE Pipes -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('hdpe-pipes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/HDPE-pipes-and-fittings.png" alt="HDPE Pipes" class="w-full h-full object-contain">
                 </div>
@@ -691,7 +692,7 @@
             </div>
 
             <!-- 20. Seamless Pipes -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('seamless-pipes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/SEAMLESS-PIPES-11.png" alt="Seamless Pipes" class="w-full h-full object-contain">
                 </div>
@@ -701,7 +702,7 @@
             </div>
 
             <!-- 21. ERW Pipes -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('erw-pipes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/ERW-PIPES-11-1.png" alt="ERW Pipes" class="w-full h-full object-contain">
                 </div>
@@ -711,7 +712,7 @@
             </div>
 
             <!-- 22. Brass Fittings -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('brass-fittings')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Bras-Pipe-Fittings.png" alt="Brass Fittings" class="w-full h-full object-contain">
                 </div>
@@ -721,7 +722,7 @@
             </div>
 
             <!-- 23. Hydraulic Fittings -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('hydraulic-fittings')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Hydraulic-Pipes-Fittings.png" alt="Hydraulic Fittings" class="w-full h-full object-contain">
                 </div>
@@ -731,7 +732,7 @@
             </div>
 
             <!-- 24. Pneumatic Fitting -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('pneumatic-fittings')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Pneumatic-pipe-Fitting.png" alt="Pneumatic Fitting" class="w-full h-full object-contain">
                 </div>
@@ -741,7 +742,7 @@
             </div>
 
             <!-- 25. Dairy Valves -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('dairy-valves')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Dairy-Valves-Fittings.png" alt="Dairy Valves" class="w-full h-full object-contain">
                 </div>
@@ -751,7 +752,7 @@
             </div>
 
             <!-- 26. Boiler Mounting -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('boiler-mounting')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Boiler-Mounting.png" alt="Boiler Mounting" class="w-full h-full object-contain">
                 </div>
@@ -761,7 +762,7 @@
             </div>
 
             <!-- 27. Boiler Tubes -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('boiler-tubes')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Boiler-Tubes.png" alt="Boiler Tubes" class="w-full h-full object-contain">
                 </div>
@@ -771,7 +772,7 @@
             </div>
 
             <!-- 28. Pressure Gauges -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('pressure-gauges')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Temprature-Pressure-Gaugaes.png" alt="Pressure Gauges" class="w-full h-full object-contain">
                 </div>
@@ -781,7 +782,7 @@
             </div>
 
             <!-- 29. Fire Fighting -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('fire-fighting')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Fire-Fighting-Accsesories.png" alt="Fire Fighting" class="w-full h-full object-contain">
                 </div>
@@ -791,7 +792,7 @@
             </div>
 
             <!-- 30. Hose Clips -->
-            <div class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer">
+            <div onclick="viewProduct('hose-clips')" class="group bg-gray-50 rounded-lg sm:rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 border-2 border-red-200 hover:border-secondary cursor-pointer transform hover:scale-105">
                 <div class="aspect-square bg-white flex items-center justify-center p-2 group-hover:bg-gray-50 transition">
                     <img src="./assets/images/Hose-Clips.png" alt="Hose Clips" class="w-full h-full object-contain">
                 </div>
@@ -802,8 +803,9 @@
 
         </div>
 
+        <!-- View All Products Button -->
         <div class="text-center mt-8 sm:mt-10 md:mt-12">
-            <a href="products.html"
+            <a href="products.php"
                 class="inline-flex items-center bg-secondary hover:bg-red-700 text-white font-bold px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg transition transform hover:scale-105 shadow-lg text-sm sm:text-base md:text-lg">
                 View All Products
                 <svg class="w-5 h-5 sm:w-6 sm:h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -814,6 +816,19 @@
         </div>
     </div>
 </section>
+
+<!-- JavaScript for Product Navigation -->
+<script>
+/**
+ * Navigate to product details page
+ * @param {string} productSlug - The product identifier (URL-friendly name)
+ */
+function viewProduct(productSlug) {
+    // Navigate to product details page with product ID/slug
+    window.location.href = 'product_details.php?product=' + productSlug;
+}
+</script>
+
 
 
 <!-- Why Choose Us - Mobile Responsive -->
@@ -893,6 +908,35 @@
     </div>
 </section>
 
+<section class="">
+    <div class="parallax h-[300px] md:h-[450px] bg-center"
+        style="background-image:url('https://guptamachinery.com/wp-content/uploads/2024/10/PBi-Since-1971-2048x767.jpg')">
+    </div>
+
+    <div class="parallax h-[300px] md:h-[450px] bg-center"
+        style="background-image:url('https://guptamachinery.com/wp-content/uploads/2024/12/PIPES-BANNER-2048x767.png')">
+    </div>
+
+    <div class="parallax h-[300px] md:h-[450px] bg-center"
+        style="background-image:url('https://guptamachinery.com/wp-content/uploads/2024/12/Fire-Fighting-2048x767.png')">
+    </div>
+        <div class="parallax h-[300px] md:h-[450px] bg-center"
+        style="background-image:url('https://guptamachinery.com/wp-content/uploads/2024/10/Spac-2048x767.jpg')">
+    </div>
+
+        </div>
+        <div class="parallax h-[300px] md:h-[450px] bg-center"
+        style="background-image:url('https://guptamachinery.com/wp-content/uploads/2024/12/GOKUL-BANNER-2048x771.jpg')">
+    </div>
+</section>
+
+<style>
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+}
+</style>
+
 <!-- CTA Section - Mobile Responsive -->
 <section class="bg-gradient-to-r from-primary via-blue-900 to-blue-800 text-white py-12 sm:py-16 md:py-20 relative overflow-hidden">
     <div class="absolute inset-0 opacity-10">
@@ -932,88 +976,7 @@
 <?php include 'assets/include/footer.php'; ?>
 
 
-<!-- Quote Form Modal - Mobile Responsive -->
-<div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden transition-opacity">
-    <div id="quoteModalContent"
-        class="fixed right-0 top-0 h-full w-full sm:w-[90%] md:w-[500px] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 overflow-y-auto">
-        <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-4 sm:p-6 sticky top-0 z-10">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-bold">Request a Quote</h3>
-                    <p class="text-blue-100 text-xs sm:text-sm mt-1">Get competitive pricing for your needs</p>
-                </div>
-                <button onclick="closeQuoteForm()" class="text-white hover:text-gray-200 transition">
-                    <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
 
-        <form id="quote-form" class="p-4 sm:p-6 space-y-3 sm:space-y-4">
-            <div>
-                <label class="block text-gray-700 font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Full Name *</label>
-                <input type="text" required
-                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Email Address *</label>
-                <input type="email" required
-                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Phone Number *</label>
-                <input type="tel" required
-                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Company Name</label>
-                <input type="text"
-                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Product Category *</label>
-                <select required
-                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base">
-                    <option value="">Select a category</option>
-                    <option value="gate-valves">Gate Valves</option>
-                    <option value="globe-valves">Globe Valves</option>
-                    <option value="ball-valves">Ball Valves</option>
-                    <option value="non-return-valves">Non Return Valves</option>
-                    <option value="butterfly-valves">Butterfly Valves</option>
-                    <option value="pipes-fittings">Pipes & Fittings</option>
-                    <option value="flanges">Flanges</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
-            <div>
-                <label class="block text-gray-700 font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Quantity Required</label>
-                <input type="text" placeholder="e.g., 50 units"
-                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base">
-            </div>
-
-            <div>
-                <label class="block text-gray-700 font-semibold mb-1.5 sm:mb-2 text-sm sm:text-base">Requirements / Message *</label>
-                <textarea required rows="4"
-                    class="w-full px-3 sm:px-4 py-2.5 sm:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm sm:text-base"
-                    placeholder="Please describe your requirements..."></textarea>
-            </div>
-
-            <button type="submit"
-                class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 sm:py-4 rounded-lg transition transform hover:scale-105 shadow-lg text-sm sm:text-base">
-                Submit Quote Request
-            </button>
-
-            <p class="text-xs text-gray-500 text-center">We'll respond to your quote request within 24 hours</p>
-        </form>
-    </div>
-</div>
 
 <script src="./assets/js/main.js"></script>
 

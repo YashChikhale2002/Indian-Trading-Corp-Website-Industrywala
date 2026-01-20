@@ -1,84 +1,61 @@
 <?php
-// Get the current page name
-$current_page = basename($_SERVER['PHP_SELF']);
+/**
+ * Header Component
+ * Navigation bar with logo, menu items, and Get Quote button
+ */
 ?>
-<header class="bg-white shadow-lg sticky top-0 z-50 border-b-4 border-secondary">
-    <div class="container mx-auto px-4">
-        <nav class="flex items-center justify-between py-2">
-            <!-- Logo - COMPACT & BIGGER -->
-            <div class="flex items-center space-x-2">
-                <img src="assets/images/ITC LOGO.png" 
-                     alt="Indian Traders Corp Logo" 
-                     class="h-16 w-auto object-contain">
-                <h1 class="text-2xl font-bold text-primary leading-tight">Indian Traders Corp</h1>
+
+<!-- Header Section -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="container mx-auto px-4 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-3">
+                <img src="./assets/images/ITC LOGO.png" alt="Indian Traders Corp Logo" class="h-12 w-12">
+                <div>
+                    <h1 class="text-xl font-bold text-primary">Indian Traders Corp</h1>
+                    <p class="text-xs text-gray-600">Since 1969</p>
+                </div>
             </div>
 
-            <!-- Desktop Menu -->
-            <ul class="hidden md:flex space-x-8 items-center">
-                <li>
-                    <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="about.php" class="<?php echo ($current_page == 'about.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="products.php" class="<?php echo ($current_page == 'products.php' || $current_page == 'product_details.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.php" class="<?php echo ($current_page == 'contact.php') ? 'text-primary font-bold border-b-2 border-secondary pb-1' : 'text-gray-700 font-semibold'; ?> hover:text-primary transition">
-                        Contact
-                    </a>
-                </li>
-                <li>
-                    <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-6 py-2 rounded-lg transition transform hover:scale-105 shadow-md">
-                        Get Quote
-                    </button>
-                </li>
-            </ul>
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.php" class="text-gray-700 hover:text-secondary font-semibold transition">Home</a>
+                <a href="about.php" class="text-gray-700 hover:text-secondary font-semibold transition">About</a>
+                <a href="products.php" class="text-gray-700 hover:text-secondary font-semibold transition">Products</a>
+                <a href="contact.php" class="text-gray-700 hover:text-secondary font-semibold transition">Contact</a>
+                <!-- Get Quote Button - Opens Modal -->
+                <button onclick="openQuoteModal()" class="bg-gradient-to-r from-secondary to-red-700 text-white px-6 py-2 rounded-lg font-bold hover:from-red-700 hover:to-secondary transition-all transform hover:scale-105 shadow-lg">
+                    Get Quote
+                </button>
+            </div>
 
             <!-- Mobile Menu Button -->
-            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 p-2 hover:bg-gray-100 rounded-lg transition">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button id="mobileMenuBtn" class="md:hidden text-gray-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
             </button>
-        </nav>
+        </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2 pt-2">
-            <ul class="space-y-2">
-                <li>
-                    <a href="index.php" class="block py-3 <?php echo ($current_page == 'index.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
-                        Home
-                    </a>
-                </li>
-                <li>
-                    <a href="about.php" class="block py-3 <?php echo ($current_page == 'about.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a href="products.php" class="block py-3 <?php echo ($current_page == 'products.php' || $current_page == 'product_details.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
-                        Products
-                    </a>
-                </li>
-                <li>
-                    <a href="contact.php" class="block py-3 <?php echo ($current_page == 'contact.php') ? 'text-primary font-bold bg-gray-50' : 'text-gray-700'; ?> hover:bg-gray-50 px-3 rounded-lg">
-                        Contact
-                    </a>
-                </li>
-                <li>
-                    <button onclick="openQuoteForm()" class="w-full bg-secondary hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition shadow-md mt-2">
-                        Get Quote
-                    </button>
-                </li>
-            </ul>
+        <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-4">
+            <a href="index.php" class="block text-gray-700 hover:text-secondary font-semibold transition">Home</a>
+            <a href="about.php" class="block text-gray-700 hover:text-secondary font-semibold transition">About</a>
+            <a href="products.php" class="block text-gray-700 hover:text-secondary font-semibold transition">Products</a>
+            <a href="contact.php" class="block text-gray-700 hover:text-secondary font-semibold transition">Contact</a>
+            <!-- Mobile Get Quote Button - Opens Modal -->
+            <button onclick="openQuoteModal()" class="w-full bg-gradient-to-r from-secondary to-red-700 text-white px-6 py-2 rounded-lg font-bold hover:from-red-700 hover:to-secondary transition-all shadow-lg">
+                Get Quote
+            </button>
         </div>
-    </div>
+    </nav>
 </header>
+
+<script>
+// Mobile menu toggle
+document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenu.classList.toggle('hidden');
+});
+</script>

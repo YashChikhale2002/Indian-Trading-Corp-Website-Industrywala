@@ -28,7 +28,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: #f5f5f5;
         }
- 
+
         .product-card {
             background: white;
             border-radius: 12px;
@@ -183,36 +183,69 @@
         .product-section.active {
             display: block;
         }
+
+        /* Responsive Banner Styles - Same as other pages */
+        .page-banner {
+            height: 220px; /* Mobile default */
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background: #e5e7eb;
+        }
+
+        .banner-image {
+            object-fit: contain; /* Shows complete image on mobile */
+            object-position: center;
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Tablet: 640px and above */
+        @media (min-width: 640px) {
+            .page-banner {
+                height: 320px;
+            }
+
+            .banner-image {
+                object-fit: cover; /* Fill space on tablet */
+            }
+        }
+
+        /* Desktop: 1024px and above */
+        @media (min-width: 1024px) {
+            .page-banner {
+                height: 450px;
+            }
+
+            .banner-image {
+                object-fit: cover; /* Fill space beautifully */
+            }
+        }
+
+        /* Large Desktop: 1440px and above */
+        @media (min-width: 1440px) {
+            .page-banner {
+                height: 550px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <?php include 'assets/include/header.php'; ?>
 
-    <!-- Hero Banner -->
-    <section class="relative w-full overflow-hidden" style="height: 50vh; min-height: 300px;">
-        <div class="absolute inset-0">
-            <img src="./assets/images/crousel6.jpg" 
-                 alt="Industrial Products" 
-                 style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
-        </div>
-        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <div class="text-center text-white">
-                <h2 class="text-4xl md:text-5xl font-bold mb-3">Our Products</h2>
-                <p class="text-lg md:text-xl">Quality Industrial Valves, Pipes & Fittings</p>
-            </div>
-        </div>
-    </section>
+<!-- Include Modal -->
+<?php include 'assets/include/modal.php'; ?>
 
-    <!-- Filter Section -->
-    <section class="bg-white border-b border-gray-200 py-8 sticky top-[89px] z-40 shadow-sm">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap gap-4 justify-center">
-                <button onclick="filterProducts('all')" class="filter-btn active" id="btn-all">All Products</button>
-                <button onclick="filterProducts('valves')" class="filter-btn" id="btn-valves">Gate / Globe Valves</button>
-                <button onclick="filterProducts('ball')" class="filter-btn" id="btn-ball">Ball / Check Valves</button>
-                <button onclick="filterProducts('pipes')" class="filter-btn" id="btn-pipes">Pipes & Fittings</button>
-            </div>
+    <!-- Responsive Single Image Banner -->
+    <section class="page-banner">
+        <div style="position: relative; width: 100%; height: 100%;">
+            <img src="./assets/images/crousel6.jpg" 
+                 alt="Industrial Products and Valves" 
+                 class="banner-image">
         </div>
     </section>
 
@@ -221,7 +254,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-primary mb-8 text-center">All Industrial Products</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                
+
                 <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-image-container">
@@ -235,7 +268,7 @@
                         <p class="product-price">₹1,384 - ₹19,688</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Bronze IBR Certified Globe Steam Stop Valve', 'IBR Approved • High Temperature', 'IBR Certified steam stop valve for high-temperature applications in boiler systems', './assets/images/Globe-Valve-1.png', '₹1,384 - ₹19,688', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -253,7 +286,7 @@
                         <p class="product-price">₹1,892 - ₹26,975</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Iron IBR Certified Globe Steam Stop Valve', 'ASTM Grade • Flanged End', 'Heavy-duty cast iron globe valve with IBR certification for industrial steam applications', './assets/images/Globe-Valve-1.png', '₹1,892 - ₹26,975', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -271,7 +304,7 @@
                         <p class="product-price">₹4,928 - ₹76,500</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 150#', 'Class 150 • Bolted Bonnet', 'Cast steel gate valve with class 150 pressure rating for reliable on/off control', './assets/images/Gate-Valve-1.png', '₹4,928 - ₹76,500', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -289,7 +322,7 @@
                         <p class="product-price">₹13,674 - ₹2,15,009</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 300#', 'Class 300 • High Pressure', 'High-pressure gate valve for critical industrial applications with class 300 rating', './assets/images/Gate-Valve-1.png', '₹13,674 - ₹2,15,009', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -307,7 +340,7 @@
                         <p class="product-price">₹3,825 - ₹88,378</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 150#', 'Class 150 • Steam Service', 'Globe valve for steam and high-temperature service with precision flow control', './assets/images/Globe-Valve-1.png', '₹3,825 - ₹88,378', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -325,7 +358,7 @@
                         <p class="product-price">₹7,845 - ₹1,52,880</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 300#', 'Class 300 • Bolted Bonnet', 'High-pressure globe valve with IBR certification for demanding applications', './assets/images/Globe-Valve-1.png', '₹7,845 - ₹1,52,880', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -343,7 +376,7 @@
                         <p class="product-price">₹2,450 - ₹18,900</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel A-105 IBR Certified Gate Valve', 'Forged A-105 • Socket Weld', 'Forged steel gate valve for high-pressure applications with superior strength', './assets/images/Gate-Valve-1.png', '₹2,450 - ₹18,900', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -361,7 +394,7 @@
                         <p class="product-price">₹2,180 - ₹16,750</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel A-105 IBR Certified Globe Valve', 'Forged A-105 • Threaded', 'Forged steel globe valve with threaded connections for easy installation', './assets/images/Globe-Valve-1.png', '₹2,180 - ₹16,750', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -379,7 +412,7 @@
                         <p class="product-price">₹3,250 - ₹24,500</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel F-304 IBR Certified Check Valve', 'SS 304 • Swing Type', 'Stainless steel check valve with swing type design for backflow prevention', './assets/images/Ball-Valve.png', '₹3,250 - ₹24,500', 'Ball / Check Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -397,7 +430,7 @@
                         <p class="product-price">₹3,850 - ₹29,200</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel F-304 IBR Certified Gate Valve', 'SS 304 • Flanged End', 'Stainless steel gate valve for corrosive environments with excellent durability', './assets/images/Gate-Valve-1.png', '₹3,850 - ₹29,200', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -414,7 +447,7 @@
                         <p class="product-price">₹850 - ₹12,500</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('MS Pipes & Fittings', 'Mild Steel • ERW, Seamless', 'High-quality mild steel pipes for industrial applications with ERW and seamless options', './assets/images/MS-pipes-Fittings.png', '₹850 - ₹12,500', 'Pipes & Fittings')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -432,7 +465,7 @@
                         <p class="product-price">₹2,450 - ₹35,800</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('SS Pipes & Fittings', 'SS304, SS316, SS321', 'Premium stainless steel pipes and fittings for corrosion-resistant applications', './assets/images/SS-Pipes-Fittings.png', '₹2,450 - ₹35,800', 'Pipes & Fittings')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -450,7 +483,7 @@
                         <p class="product-price">₹1,200 - ₹18,900</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('GI Pipes & Fittings', 'Galvanized Iron, ISI Certified', 'ISI certified galvanized iron pipes with superior corrosion protection', './assets/images/GI-pipes-Fittings.png', '₹1,200 - ₹18,900', 'Pipes & Fittings')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -464,8 +497,8 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-primary mb-8 text-center">Gate / Globe Valves</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                
-                <!-- Valve Products 1-8 and 10 -->
+
+                <!-- Repeat Products 1-8 and 10 here with same structure -->
                 <div class="product-card">
                     <div class="product-image-container">
                         <span class="category-badge">Gate / Globe Valves</span>
@@ -478,7 +511,7 @@
                         <p class="product-price">₹1,384 - ₹19,688</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Bronze IBR Certified Globe Steam Stop Valve', 'IBR Approved • High Temperature', 'IBR Certified steam stop valve for high-temperature applications in boiler systems', './assets/images/Globe-Valve-1.png', '₹1,384 - ₹19,688', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -495,7 +528,7 @@
                         <p class="product-price">₹1,892 - ₹26,975</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Iron IBR Certified Globe Steam Stop Valve', 'ASTM Grade • Flanged End', 'Heavy-duty cast iron globe valve with IBR certification for industrial steam applications', './assets/images/Globe-Valve-1.png', '₹1,892 - ₹26,975', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -512,7 +545,7 @@
                         <p class="product-price">₹4,928 - ₹76,500</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 150#', 'Class 150 • Bolted Bonnet', 'Cast steel gate valve with class 150 pressure rating for reliable on/off control', './assets/images/Gate-Valve-1.png', '₹4,928 - ₹76,500', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -529,7 +562,7 @@
                         <p class="product-price">₹13,674 - ₹2,15,009</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Gate Valve Class 300#', 'Class 300 • High Pressure', 'High-pressure gate valve for critical industrial applications with class 300 rating', './assets/images/Gate-Valve-1.png', '₹13,674 - ₹2,15,009', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -546,7 +579,7 @@
                         <p class="product-price">₹3,825 - ₹88,378</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 150#', 'Class 150 • Steam Service', 'Globe valve for steam and high-temperature service with precision flow control', './assets/images/Globe-Valve-1.png', '₹3,825 - ₹88,378', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -563,7 +596,7 @@
                         <p class="product-price">₹7,845 - ₹1,52,880</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Cast Steel IBR Certified Globe Valve Class 300#', 'Class 300 • Bolted Bonnet', 'High-pressure globe valve with IBR certification for demanding applications', './assets/images/Globe-Valve-1.png', '₹7,845 - ₹1,52,880', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -580,7 +613,7 @@
                         <p class="product-price">₹2,450 - ₹18,900</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel A-105 IBR Certified Gate Valve', 'Forged A-105 • Socket Weld', 'Forged steel gate valve for high-pressure applications with superior strength', './assets/images/Gate-Valve-1.png', '₹2,450 - ₹18,900', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -597,7 +630,7 @@
                         <p class="product-price">₹2,180 - ₹16,750</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel A-105 IBR Certified Globe Valve', 'Forged A-105 • Threaded', 'Forged steel globe valve with threaded connections for easy installation', './assets/images/Globe-Valve-1.png', '₹2,180 - ₹16,750', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -614,7 +647,7 @@
                         <p class="product-price">₹3,850 - ₹29,200</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel F-304 IBR Certified Gate Valve', 'SS 304 • Flanged End', 'Stainless steel gate valve for corrosive environments with excellent durability', './assets/images/Gate-Valve-1.png', '₹3,850 - ₹29,200', 'Gate / Globe Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -628,8 +661,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-primary mb-8 text-center">Ball / Check Valves</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                
-                <!-- Ball/Check Valve Product 9 -->
+
                 <div class="product-card">
                     <div class="product-image-container">
                         <span class="category-badge">Ball / Check Valves</span>
@@ -642,7 +674,7 @@
                         <p class="product-price">₹3,250 - ₹24,500</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('Forged Steel F-304 IBR Certified Check Valve', 'SS 304 • Swing Type', 'Stainless steel check valve with swing type design for backflow prevention', './assets/images/Ball-Valve.png', '₹3,250 - ₹24,500', 'Ball / Check Valves')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -656,8 +688,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-primary mb-8 text-center">Pipes & Fittings</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-                
-                <!-- Pipes Products 11-13 -->
+
                 <div class="product-card">
                     <div class="product-image-container">
                         <span class="category-badge">Pipes & Fittings</span>
@@ -669,7 +700,7 @@
                         <p class="product-price">₹850 - ₹12,500</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('MS Pipes & Fittings', 'Mild Steel • ERW, Seamless', 'High-quality mild steel pipes for industrial applications with ERW and seamless options', './assets/images/MS-pipes-Fittings.png', '₹850 - ₹12,500', 'Pipes & Fittings')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -686,7 +717,7 @@
                         <p class="product-price">₹2,450 - ₹35,800</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('SS Pipes & Fittings', 'SS304, SS316, SS321', 'Premium stainless steel pipes and fittings for corrosion-resistant applications', './assets/images/SS-Pipes-Fittings.png', '₹2,450 - ₹35,800', 'Pipes & Fittings')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -703,7 +734,7 @@
                         <p class="product-price">₹1,200 - ₹18,900</p>
                         <div class="btn-group">
                             <button onclick="viewProduct('GI Pipes & Fittings', 'Galvanized Iron, ISI Certified', 'ISI certified galvanized iron pipes with superior corrosion protection', './assets/images/GI-pipes-Fittings.png', '₹1,200 - ₹18,900', 'Pipes & Fittings')" class="btn-details">Details</button>
-                            <button onclick="openEnquiryForm()" class="btn-enquiry">Enquiry</button>
+                            <button onclick="openQuoteModal()" class="btn-enquiry">Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -712,85 +743,63 @@
         </div>
     </section>
 
-    <!-- Enquiry Form Modal -->
-    <div id="enquiryModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
-            <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-5 rounded-t-2xl sticky top-0 z-10">
-                <div class="flex justify-between items-center">
-                    <div>
-                        <h3 class="text-xl font-bold">Request a Quote</h3>
-                        <p class="text-blue-100 text-xs mt-1">Get competitive pricing for your needs</p>
-                    </div>
-                    <button onclick="closeEnquiryForm()" class="text-white hover:text-gray-200 transition p-2">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <form id="enquiry-form" class="p-6" onsubmit="return handleEnquirySubmit(event)">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Full Name *</label>
-                        <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your name">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Email Address *</label>
-                        <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="your@email.com">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Phone Number *</label>
-                        <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="+91 XXXXX XXXXX">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Company Name</label>
-                        <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Your company name">
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Product Category *</label>
-                        <select required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
-                            <option value="">Select a category</option>
-                            <option value="gate-valves">Gate Valves</option>
-                            <option value="globe-valves">Globe Valves</option>
-                            <option value="ball-valves">Ball Valves</option>
-                            <option value="check-valves">Check Valves</option>
-                            <option value="pipes-fittings">Pipes & Fittings</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Quantity Required</label>
-                        <input type="text" placeholder="e.g., 50 units" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
-                    </div>
-                    <div class="md:col-span-2">
-                        <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Requirements / Message *</label>
-                        <textarea required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Please describe your requirements..."></textarea>
-                    </div>
-                </div>
-
-                <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition transform hover:scale-105 shadow-lg mt-4">
-                    Submit Quote Request
-                </button>
-                <p class="text-xs text-gray-500 text-center mt-3">We'll respond to your quote request within 24 hours</p>
-            </form>
-        </div>
-    </div>
-
 <?php include 'assets/include/footer.php'; ?>
-
 
     <!-- JavaScript -->
     <script>
-        function toggleMobileMenu() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        // ============================================================================
+        // MODAL FUNCTIONS
+        // ============================================================================
+
+        /**
+         * Open Quote Modal
+         * Called by all "Enquiry" buttons
+         */
+        function openQuoteModal() {
+            const modal = document.getElementById('quoteModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+
+                // Focus first input field
+                setTimeout(() => {
+                    const firstInput = modal.querySelector('input[name="fullName"]');
+                    if (firstInput) firstInput.focus();
+                }, 300);
+
+                console.log('✓ Quote modal opened');
+            } else {
+                console.error('❌ Modal not found! Make sure modal.php is included.');
+            }
         }
+
+        /**
+         * Close Quote Modal
+         */
+        function closeQuoteModal() {
+            const modal = document.getElementById('quoteModal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                }, 300);
+
+                console.log('✓ Quote modal closed');
+            }
+        }
+
+        // ============================================================================
+        // FILTER FUNCTIONS
+        // ============================================================================
 
         function filterProducts(category) {
             // Remove active class from all buttons
             const buttons = document.querySelectorAll('.filter-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            
+
             // Add active class to clicked button
             document.getElementById('btn-' + category).classList.add('active');
 
@@ -813,7 +822,10 @@
             window.scrollTo({ top: 450, behavior: 'smooth' });
         }
 
-        // View Product - Redirect to cart.html
+        // ============================================================================
+        // VIEW PRODUCT FUNCTION
+        // ============================================================================
+
         function viewProduct(name, subtitle, description, image, price, category) {
             const params = new URLSearchParams({
                 name: name,
@@ -823,38 +835,41 @@
                 price: price,
                 category: category
             });
-            window.location.href = 'cart.html?' + params.toString();
+            window.location.href = 'cart.php?' + params.toString();
         }
 
-        function openEnquiryForm() {
-            const modal = document.getElementById('enquiryModal');
-            modal.classList.remove('hidden');
-            setTimeout(() => {
-                modal.querySelector('div > div').style.transform = 'scale(1)';
-            }, 10);
-            document.body.style.overflow = 'hidden';
-        }
+        // ============================================================================
+        // EVENT LISTENERS
+        // ============================================================================
 
-        function closeEnquiryForm() {
-            const modal = document.getElementById('enquiryModal');
-            modal.querySelector('div > div').style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
-            document.body.style.overflow = '';
-        }
+        /**
+         * Close modal when clicking outside
+         */
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('quoteModal');
 
-        function handleEnquirySubmit(event) {
-            event.preventDefault();
-            alert('Thank you! Your enquiry has been submitted. We will contact you within 24 hours.');
-            closeEnquiryForm();
-            document.getElementById('enquiry-form').reset();
-            return false;
-        }
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeQuoteModal();
+                    }
+                });
+            }
+        });
 
-        document.getElementById('enquiryModal').onclick = function(e) {
-            if (e.target.id === 'enquiryModal') closeEnquiryForm();
-        };
+        /**
+         * Close modal on ESC key
+         */
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('quoteModal');
+                if (modal && !modal.classList.contains('hidden')) {
+                    closeQuoteModal();
+                }
+            }
+        });
+
+        console.log('✓ Products page scripts loaded');
     </script>
 </body>
 </html>

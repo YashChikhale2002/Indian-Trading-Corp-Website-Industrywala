@@ -22,90 +22,8 @@
 <body class="bg-gray-50">
 <?php include 'assets/include/header.php'; ?>
 
-
-<!-- Quote Form Modal - CENTER MODAL -->
-<div id="quoteModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-    <div id="quoteModalContent" class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto">
-        
-        <!-- Header -->
-        <div class="bg-gradient-to-r from-primary to-blue-900 text-white p-5 rounded-t-2xl sticky top-0 z-10">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h3 class="text-xl font-bold">Request a Quote</h3>
-                    <p class="text-blue-100 text-xs mt-1">Get competitive pricing for your needs</p>
-                </div>
-                <button onclick="closeQuoteForm()" class="text-white hover:text-gray-200 transition p-2">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- Compact Form in Grid -->
-        <form id="quote-form" class="p-6" onsubmit="return handleFormSubmit(event)">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Full Name -->
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Full Name *</label>
-                    <input type="text" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Enter your name">
-                </div>
-
-                <!-- Email -->
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Email Address *</label>
-                    <input type="email" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="your@email.com">
-                </div>
-
-                <!-- Phone -->
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Phone Number *</label>
-                    <input type="tel" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="+91 XXXXX XXXXX">
-                </div>
-
-                <!-- Company -->
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Company Name</label>
-                    <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Your company name">
-                </div>
-
-                <!-- Product Category -->
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Product Category *</label>
-                    <select required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
-                        <option value="">Select a category</option>
-                        <option value="gate-valves">Gate Valves</option>
-                        <option value="globe-valves">Globe Valves</option>
-                        <option value="ball-valves">Ball Valves</option>
-                        <option value="non-return-valves">Non Return Valves</option>
-                        <option value="butterfly-valves">Butterfly Valves</option>
-                        <option value="pipes-fittings">Pipes & Fittings</option>
-                        <option value="flanges">Flanges</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-
-                <!-- Quantity -->
-                <div>
-                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Quantity Required</label>
-                    <input type="text" placeholder="e.g., 50 units" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm">
-                </div>
-
-                <!-- Message - Full Width -->
-                <div class="md:col-span-2">
-                    <label class="block text-gray-700 font-semibold mb-1.5 text-sm">Requirements / Message *</label>
-                    <textarea required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm" placeholder="Please describe your requirements..."></textarea>
-                </div>
-            </div>
-
-            <button type="submit" class="w-full bg-secondary hover:bg-red-700 text-white font-bold py-3 rounded-lg transition transform hover:scale-105 shadow-lg mt-4">
-                Submit Quote Request
-            </button>
-
-            <p class="text-xs text-gray-500 text-center mt-3">We'll respond to your quote request within 24 hours</p>
-        </form>
-    </div>
-</div>
+<!-- Include Modal -->
+<?php include 'assets/include/modal.php'; ?>
 
 <!-- Just Image - Inline CSS Only -->
 <!-- Responsive Single Image Banner -->
@@ -334,10 +252,11 @@
             <h2 class="text-3xl md:text-4xl font-bold mb-4">Partner With Us Today</h2>
             <p class="text-xl mb-8 text-blue-100">Experience the difference of working with industry leaders</p>
             <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="openQuoteForm()" class="bg-secondary hover:bg-red-700 text-white font-bold px-8 py-3 rounded-lg transition transform hover:scale-105 shadow-xl">
+                <!-- Get Quote Button - Opens Modal -->
+                <button onclick="openQuoteModal()" class="bg-gradient-to-r from-secondary to-red-700 text-white px-8 py-3 rounded-lg font-bold hover:from-red-700 hover:to-secondary transition-all transform hover:scale-105 shadow-lg">
                     Get Quote
                 </button>
-                <a href="contact.html" class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-3 rounded-lg transition transform hover:scale-105 shadow-xl">
+                <a href="contact.php" class="bg-white hover:bg-gray-100 text-primary font-bold px-8 py-3 rounded-lg transition transform hover:scale-105 shadow-xl">
                     Contact Us
                 </a>
             </div>
@@ -346,12 +265,21 @@
 
 <?php include 'assets/include/footer.php'; ?>
 
-
-    <script> 
+    <script>
     // Toggle mobile menu
     function toggleMobileMenu() {
         const menu = document.getElementById('mobile-menu');
         menu.classList.toggle('hidden');
+    }
+
+    // ✨ ALIAS FUNCTIONS - Fix for "Get Quote" button ✨
+    // These functions ensure compatibility with both button naming conventions
+    function openQuoteModal() {
+        openQuoteForm();
+    }
+
+    function closeQuoteModal() {
+        closeQuoteForm();
     }
 
     // Open quote form - CENTER MODAL
@@ -385,11 +313,21 @@
     }
 
     // Close on background click
-    document.getElementById('quoteModal').onclick = function(e) {
+    document.getElementById('quoteModal')?.addEventListener('click', function(e) {
         if (e.target.id === 'quoteModal') {
             closeQuoteForm();
         }
-    };
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('quoteModal');
+            if (modal && !modal.classList.contains('hidden')) {
+                closeQuoteForm();
+            }
+        }
+    });
 </script>
 </body>
 </html>
